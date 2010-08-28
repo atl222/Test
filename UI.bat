@@ -84,8 +84,8 @@ GOTO Menu
 :Mangos
 cls
 SET /P M=Do you want to release (Y) or Debug (N) the core?  
-IF %M%=Y SET debug=Release
-IF %M%=N SET debug=debug
+IF %M%==Y SET debug=Release
+IF %M%==N SET debug=debug
 cls
 echo. Core is going to compile now.
 echo.
