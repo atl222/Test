@@ -94,27 +94,19 @@ cls
 IF EXIST mangos rmdir /s /q mangos
 IF NOT EXIST Mangos git\bin\git.exe clone git://github.com/mangos/mangos.git
 cls
-cd Mangos\src\bindings
-IF EXIST ScriptDev2 rmdir ScriptDev2
-IF NOT EXIST ScriptDev2 git\bin\git.exe clone git://github.com/rsa/scriptdev2.git
-cls
-rename "scriptdev2" "ScriptDev2"
-cd ..
-echo. Final Stage
-echo.
-pause
-cls
 cd mangos
-%WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe win\mangosdVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
-cls
-cd src\bindings\
+%WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe win\mangosdVC100 /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
+cd src\bindings
+IF EXIST ScriptDev2 rmdir ScriptDev2
+IF NOT EXIST ScriptDev2 ..\..\..\git\bin\git.exe clone git://github.com/rsa/scriptdev2.git
+rename "scriptdev2" "ScriptDev2"
 %WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe ScriptDev2\scriptVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
 pause
 cls
 echo. Your compiled Core is now located inside mangos\bin folder.
 echo.
 pause
-GOTO Menu
+exit
 :New
 cls
 echo.
