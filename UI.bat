@@ -102,13 +102,14 @@ cd mangos
 echo. Part 1 Done
 echo.
 pause
-cd src\bindings
+cd src
+cd bindings
 IF EXIST ScriptDev2 rmdir ScriptDev2
 IF NOT EXIST ScriptDev2 ..\..\..\git\bin\git.exe clone git://github.com/rsa/scriptdev2.git
 rename "scriptdev2" "ScriptDev2"
 cd ../../
 pushd %CD%
-cd mangos\src\bindings
+cd mangos\src\bindings\ScriptDev2\
 %WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe scriptVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
 pause
 cls
