@@ -102,11 +102,13 @@ cd mangos
 echo. Part 1 Done
 echo.
 pause
+cls
 cd src
 cd bindings
 IF EXIST ScriptDev2 rmdir ScriptDev2
 IF NOT EXIST ScriptDev2 ..\..\..\git\bin\git.exe clone git://github.com/rsa/scriptdev2.git
 rename "scriptdev2" "ScriptDev2"
+cls
 cd ../../../
 cd mangos
 pushd %CD%
@@ -115,6 +117,7 @@ cd src\bindings\ScriptDev2
 pause
 cls
 echo. Your compiled Core is now located inside mangos\bin folder.
+echo  Note : Warnings are normal , but errors aren't - if you get any errors your core didn't compile correctly.
 echo.
 pause
 GOTO Menu
