@@ -7,6 +7,7 @@ xcopy Test\UI.bat "." /i /e /y
 rmdir /s /q Test
 cls
 echo. UI has been updated
+echo  - UI Application purpose changed
 echo.
 pause
 GOTO Menu
@@ -22,38 +23,17 @@ echo  บ                         Project                            บ
 echo  บ                          3.3.5                             บ
 echo  บ             Copyright 2010 All Rights Reserved             บ      
 echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ                                                        
-echo.            
-echo  Type in a number for a result
-echo.
-echo  1 - Core Status (Current Core Status)
-echo  2 - Database Status (Current Database Status)
-echo  3 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
-echo  4 - Comming Soon (Stuff thats not ready yet)
-echo  5 - Requirements for this application
+echo. 
+echo           
+echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
+echo  I - Requirements for this application
 echo  X - Exit
 echo.
 SET /P M=Type a number for your result : 
-IF %M%==1 GOTO Core
-IF %M%==2 GOTO Database
-IF %M%==3 GOTO Start
-IF %M%==4 GOTO New
-IF %M%==5 GOTO Info
+IF %M%==1 GOTO Start
+IF %M%==2 GOTO Info
 IF %M%==X EXIT
 IF %M%==x EXIT
-:CORE
-cls
-echo.
-echo Core status : Using Clean Mangos + Clean SD2
-echo.
-pause
-GOTO menu
-:Database
-cls
-echo.
-echo Database status : Database is functional
-echo.
-pause
-GOTO menu
 :Start
 cls
 SET /P M=Do you only want MaNGOS (Y) or MaNGOS + SD2(N)
@@ -121,19 +101,6 @@ echo  Note : Warnings are normal , but errors aren't - if you get any errors you
 echo.
 pause
 GOTO Menu
-:New
-cls
-echo.
-echo    - New Custom Atlantis Core
-echo    - Option to Compile a BETA Cataclysm Core
-echo    - Autobroadcast on the server
-echo    - PvP Announcer
-echo    - PvP Tokens
-echo    - Patches to ready the core+db for Cataclysm
-echo    - Option to download diffrent database's
-echo.
-pause
-GOTO Menu 
 :Info
 cls
 echo. To use this application you need the following :
@@ -142,6 +109,8 @@ echo  - Visual Studio 2010
 echo. - Git (You need to install GIT in the same folder as this app - for now.)
 echo. - SDK Platform for Windows
 echo  - .Net Framework 4.0
+echo.
+echo  Note : This list will increase as the application develops , make sure to check it evrytime UI.bat updates.
 echo.
 pause
 GOTO Menu
