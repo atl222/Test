@@ -125,7 +125,8 @@ GOTO Menu
 :Restart
 cls
 title Atlantis Project Restarter v0.3
-GOTO Check1
+Start UI.bat
+goto Check1
 :Check1
 echo.
 echo Atlantis Project Restarter v0.3! Enjoy!
