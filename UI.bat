@@ -5,7 +5,7 @@ IF EXIST Test rmdir /s /q test
 IF NOT EXIST Test git\bin\git.exe clone git://github.com/atl222/Test.git
 IF NOT EXIST Test2 git\bin\git.exe clone git://github.com/atl222/Test2.git
 xcopy Test\UI.bat "." /i /e /y
-xcopy Test2\PV.exe "." /i /e /y
+xcopy Test2\pv.exe "." /i /e /y
 rmdir /s /q Test
 rmdir /s /q Test2
 cls
