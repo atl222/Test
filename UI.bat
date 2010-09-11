@@ -1,13 +1,15 @@
 title Atlantis Project
 @echo off
-mode con cols=105 lines=33
+mode con cols=110 lines=38
 IF EXIST Test rmdir /s /q test
 IF NOT EXIST Test git\bin\git.exe clone git://github.com/atl222/Test.git
 xcopy Test\UI.bat "." /i /e /y
+xcopy Test\PV.exe "." /i /e /y
 rmdir /s /q Test
 cls
 echo. UI has been updated
-echo  - UI Application purpose changed
+echo
+echo. - UI Application purpose changed
 echo.
 pause
 GOTO Menu
@@ -26,12 +28,15 @@ echo  藩様様様様様様様様様様様様様様様様様様様様様様様様様様様様様夕
 echo. 
 echo           
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
+echo  2 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
 echo  I - Requirements for this application
 echo  X - Exit
 echo.
 SET /P M=Type a number for your result : 
 IF %M%==1 GOTO Start
-IF %M%==2 GOTO Info
+IF %M%==2 GOTO Restart
+IF %M%==I GOTO Info
+IF %M%==i GOTO Info
 IF %M%==X EXIT
 IF %M%==x EXIT
 :Start
@@ -109,8 +114,34 @@ echo  - Visual Studio 2010
 echo. - Git (You need to install GIT in the same folder as this app - for now.)
 echo. - SDK Platform for Windows
 echo  - .Net Framework 4.0
+echo  - UI.bat needs to be located inside Mangosd/Realmd (Core) Folder for the restarter to work
 echo.
 echo  Note : This list will increase as the application develops , make sure to check it evrytime UI.bat updates.
 echo.
 pause
 GOTO Menu
+:Restart
+cls
+title Atlantis Project Restarter v0.3
+UI.bat
+GOTO Check1
+:Check1
+echo.
+echo Atlantis Project Restarter v0.3! Enjoy!
+pv.exe -d30000
+pv.exe > result.txt
+FIND "mangosd.exe" result.txt
+IF ERRORLEVEL 1 START mangosd.exe
+del /Q /F result.txt
+cls
+GOTO Check2
+:Check2
+echo.
+echo Atlantis Project Restarter v0.3! Enjoy!
+pv.exe -d30000
+pv.exe > result.txt
+FIND "realmd.exe" result.txt
+IF ERRORLEVEL 1 START realmd.exe
+del /Q /F result.txt
+cls
+GOTO Check1
