@@ -24,7 +24,6 @@ echo. บ   SSSSSS    S   S       SSSSSS    S  S S    S    S   SSSSS บ
 echo  บ  S      S   S   S      S      S   S   SS    S    S       S บ
 echo. บ S        S  S   SSSSS S        S  S    S    S    S   sssss บ
 echo  บ                         Project                            บ
-echo  บ                          3.3.5                             บ
 echo  บ             Copyright 2010 All Rights Reserved             บ      
 echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ                                                        
 echo. 
