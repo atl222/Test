@@ -11,7 +11,7 @@ rmdir /s /q Test2
 cls
 echo. UI has been updated
 echo.
-echo. - UI Application purpose changed
+echo. - UI Application purpose changed. Check the Requirement List
 echo.
 pause
 GOTO Menu
@@ -131,18 +131,18 @@ echo.
 echo Atlantis Project Restarter v0.3! Enjoy!
 pv.exe -d15000
 pv.exe > result.txt
-FIND "mangosd.exe" result.txt
-IF ERRORLEVEL 1 START mangosd.exe
-del /Q /F result.txt
-cls
-GOTO Check2
-:Check2
-echo.
-echo Atlantis Project Restarter v0.3! Enjoy!
-pv.exe -d15000
-pv.exe > result.txt
 FIND "realmd.exe" result.txt
 IF ERRORLEVEL 1 START realmd.exe
 del /Q /F result.txt
 cls
 GOTO Check1
+:Check2
+echo.
+echo Atlantis Project Restarter v0.3! Enjoy!
+pv.exe -d15000
+pv.exe > result.txt
+FIND "mangosd.exe" result.txt
+IF ERRORLEVEL 1 START mangosd.exe
+del /Q /F result.txt
+cls
+GOTO Check2
