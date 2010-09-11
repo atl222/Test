@@ -10,7 +10,7 @@ rmdir /s /q Test
 rmdir /s /q Test2
 cls
 echo. UI has been updated
-echo
+echo.
 echo. - UI Application purpose changed
 echo.
 pause
@@ -129,7 +129,7 @@ GOTO Check1
 :Check1
 echo.
 echo Atlantis Project Restarter v0.3! Enjoy!
-pv.exe -d30000
+pv.exe -d15000
 pv.exe > result.txt
 FIND "mangosd.exe" result.txt
 IF ERRORLEVEL 1 START mangosd.exe
@@ -139,7 +139,7 @@ GOTO Check2
 :Check2
 echo.
 echo Atlantis Project Restarter v0.3! Enjoy!
-pv.exe -d30000
+pv.exe -d15000
 pv.exe > result.txt
 FIND "realmd.exe" result.txt
 IF ERRORLEVEL 1 START realmd.exe
