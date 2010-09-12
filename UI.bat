@@ -34,6 +34,7 @@ echo.
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
 echo  2 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
 echo  3 - LichBorn WoW
+echo  C - Calculator (Opens a Calculator in another window)
 echo  I - Requirements for this application
 echo  X - Exit
 echo.
@@ -41,6 +42,7 @@ SET /P M=Type a number for your result :
 IF %M%==1 GOTO Start
 IF %M%==2 GOTO Restart
 IF %M%==3 GOTO Wow
+IF /I %M%==C GOTO Calc
 IF /I %M%==I GOTO Info
 IF /I %M%==X EXIT
 
@@ -111,6 +113,29 @@ echo  Note : Warnings are normal , but errors aren't - if you get any errors you
 echo.
 pause
 GOTO Menu
+:Calc
+cls
+title Atlantis Project Calculator
+Start UI.bat
+goto Calc1
+:Calc1
+cls
+color 0A
+echo --------------------------------------------------------------
+echo              Atlantis Project Calculator
+echo --------------------------------------------------------------
+echo.
+set /p sum=
+set /a ans=%sum%
+echo.
+echo = %ans%
+echo --------------------------------------------------------------
+pause
+cls
+echo Previous Answer: %ans%
+goto top
+pause
+exit
 :Wow
 cls
 explorer http://www.lichborn-wow.com
