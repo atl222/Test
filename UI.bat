@@ -19,7 +19,7 @@ GOTO Menu
 :menu
 cls
 echo.
-echo                            %date%
+echo                         %date%
 echo. ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป           
 echo  บ     SS    SSSSS S         SS      SS   s  SSSSS  S   SSSSS บ 
 echo  บ    S  S     S   S        S  S     S S  S    S    S   S     บ  
@@ -119,8 +119,7 @@ title Atlantis Project Calculator
 Start UI.bat
 goto Calc1
 :Calc1
-color 1F
-color 00
+color 0e
 echo --------------------------------------------------------------
 echo              Atlantis Project Calculator
 echo --------------------------------------------------------------
