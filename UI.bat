@@ -18,7 +18,8 @@ pause
 GOTO Menu
 :menu
 cls
-echo.                           %date%
+echo.
+echo                            %date%
 echo. ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป           
 echo  บ     SS    SSSSS S         SS      SS   s  SSSSS  S   SSSSS บ 
 echo  บ    S  S     S   S        S  S     S S  S    S    S   S     บ  
@@ -40,20 +41,19 @@ SET /P M=Type a number for your result :
 IF %M%==1 GOTO Start
 IF %M%==2 GOTO Restart
 IF %M%==3 GOTO Wow
-IF %M%==I GOTO Info
-IF %M%==i GOTO Info
-IF %M%==X EXIT
-IF %M%==x EXIT
+IF /I %M%==I EXPLORER www.lichborn-wow.com
+IF /I %M%==X EXIT
+
 :Start
 cls
 SET /P M=Do you only want MaNGOS (Y) or MaNGOS + SD2(N)
-IF %M%==Y GOTO Mangos1
-IF %M%==N GOTO Mangos
+IF /I %M%==Y GOTO Mangos1
+IF /I %M%==N GOTO Mangos
 :Mangos1
 cls
 SET /P M=Do you want to Release (Y) or Debug (N) the core?  
-IF %M%==Y SET debug=Release
-IF %M%==N set debug=debug
+IF /I %M%==Y SET debug=Release
+IF /I %M%==N set debug=debug
 cls
 echo. Core is going to compile now.
 echo.
@@ -74,8 +74,8 @@ GOTO Menu
 :Mangos
 cls
 SET /P M=Do you want to release (Y) or Debug (N) the core?  
-IF %M%==Y SET debug=Release
-IF %M%==N SET debug=debug
+IF /I %M%==Y SET debug=Release
+IF /I %M%==N SET debug=debug
 cls
 echo. Core is going to compile now.
 echo.
@@ -110,10 +110,6 @@ echo. Your compiled Core is now located inside mangos\bin folder.
 echo  Note : Warnings are normal , but errors aren't - if you get any errors your core didn't compile correctly.
 echo.
 pause
-GOTO Menu
-:Wow
-cls
-START "C:\Program Files\Internet Explorer\IEXPLORE.EXE" www.lichborn-wow.com
 GOTO Menu
 :Info
 cls
