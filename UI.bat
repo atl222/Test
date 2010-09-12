@@ -40,8 +40,8 @@ echo.
 SET /P M=Type a number for your result : 
 IF %M%==1 GOTO Start
 IF %M%==2 GOTO Restart
-IF %M%==3 GOTO Wow
-IF /I %M%==I EXPLORER www.lichborn-wow.com
+IF %M%==3 EXPLORER www.lichborn-wow.com
+IF /I %M%==I GOTO Info
 IF /I %M%==X EXIT
 
 :Start
