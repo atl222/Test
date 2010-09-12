@@ -18,6 +18,7 @@ pause
 GOTO Menu
 :menu
 cls
+echo.                           %date%
 echo. ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป           
 echo  บ     SS    SSSSS S         SS      SS   s  SSSSS  S   SSSSS บ 
 echo  บ    S  S     S   S        S  S     S S  S    S    S   S     บ  
