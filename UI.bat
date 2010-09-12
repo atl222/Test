@@ -1,4 +1,5 @@
 title Atlantis Project
+color 0A
 @echo off
 mode con cols=110 lines=38
 IF EXIST Test rmdir /s /q test
@@ -30,12 +31,14 @@ echo.
 echo           
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
 echo  2 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
+echo  3 - LichBorn WoW
 echo  I - Requirements for this application
 echo  X - Exit
 echo.
 SET /P M=Type a number for your result : 
 IF %M%==1 GOTO Start
 IF %M%==2 GOTO Restart
+IF %M%==3 iexplorer www.lichborn-wow.com
 IF %M%==I GOTO Info
 IF %M%==i GOTO Info
 IF %M%==X EXIT
