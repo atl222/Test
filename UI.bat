@@ -119,7 +119,6 @@ title Atlantis Project Calculator
 Start UI.bat
 goto Calc1
 :Calc1
-cls
 color 1F
 color 00
 echo --------------------------------------------------------------
@@ -134,7 +133,7 @@ echo --------------------------------------------------------------
 pause
 cls
 echo Previous Answer: %ans%
-goto top
+goto Calc1
 pause
 exit
 :Wow
