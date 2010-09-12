@@ -38,7 +38,7 @@ echo.
 SET /P M=Type a number for your result : 
 IF %M%==1 GOTO Start
 IF %M%==2 GOTO Restart
-IF %M%==3 iexplorer www.lichborn-wow.com
+IF %M%==3 GOTO Wow
 IF %M%==I GOTO Info
 IF %M%==i GOTO Info
 IF %M%==X EXIT
@@ -109,6 +109,10 @@ echo. Your compiled Core is now located inside mangos\bin folder.
 echo  Note : Warnings are normal , but errors aren't - if you get any errors your core didn't compile correctly.
 echo.
 pause
+GOTO Menu
+:Wow
+cls
+START "C:\Program Files\Internet Explorer\IEXPLORE.EXE" www.lichborn-wow.com
 GOTO Menu
 :Info
 cls
