@@ -1,6 +1,6 @@
 title Atlantis Project
-color 0A
 @echo off
+color 0A
 mode con cols=110 lines=38
 IF EXIST Test rmdir /s /q test
 IF NOT EXIST Test git\bin\git.exe clone git://github.com/atl222/Test.git
@@ -28,7 +28,7 @@ echo  บ                         Project                            บ
 echo  บ             Copyright 2010 All Rights Reserved             บ      
 echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ                                                        
 echo. 
-echo           
+echo.           
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
 echo  2 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
 echo  3 - LichBorn WoW
