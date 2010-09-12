@@ -34,7 +34,7 @@ echo.
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
 echo  2 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
 echo  3 - LichBorn WoW
-echo  C - Calculator (Opens a Calculator in another window)
+echo  C - Calculator (Starts a Calculator in this window, UI opens in a second one)
 echo  I - Requirements for this application
 echo  X - Exit
 echo.
@@ -120,7 +120,8 @@ Start UI.bat
 goto Calc1
 :Calc1
 cls
-color 0A
+color 1F
+color 00
 echo --------------------------------------------------------------
 echo              Atlantis Project Calculator
 echo --------------------------------------------------------------
