@@ -124,7 +124,7 @@ echo. - SDK Platform for Windows
 echo  - .Net Framework 4.0
 echo  - UI.bat needs to be located inside Mangosd/Realmd (Core) Folder for the restarter to work
 echo.
-echo  Note : This list will increase as the application develops , make sure to check it evrytime UI.bat updates.
+echo  Note : This list will increase as the application develops , make sure to check it everytime UI.bat updates.
 echo.
 pause
 GOTO Menu
