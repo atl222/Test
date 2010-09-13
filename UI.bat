@@ -4,15 +4,17 @@ color 0A
 mode con cols=110 lines=38
 IF EXIST Test rmdir /s /q test
 IF NOT EXIST Test git\bin\git.exe clone git://github.com/atl222/Test.git
-IF NOT EXIST Test2 git\bin\git.exe clone git://github.com/atl222/Test2.git
+IF NOT EXIST pv.exe git\bin\git.exe clone git://github.com/atl222/Test2.git
 xcopy Test\UI.bat "." /i /e /y
 xcopy Test2\pv.exe "." /i /e /y
+IF NOT EXIST UnRAR_32.exe xcopy Test\UnRAR_32.exe "." /i /e /y
 rmdir /s /q Test
 rmdir /s /q Test2
+IF NOT EXIST RAR mkdir RAR
 cls
 echo. UI has been updated
 echo.
-echo. - UI Application purpose changed. Check the Requirement List
+echo. - UI Application purpose changed. Check the Requirement List.
 echo.
 pause
 GOTO Menu
@@ -35,6 +37,7 @@ echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
 echo  2 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
 echo  3 - LichBorn WoW
 echo  C - Calculator (Starts a Calculator in this window, UI opens in a second one)
+echo  E - RAR Extractor (Extracts Any RAR Files with 1 Click)
 echo  I - Requirements for this application
 echo  X - Exit
 echo.
@@ -43,6 +46,7 @@ IF %M%==1 GOTO Start
 IF %M%==2 GOTO Restart
 IF %M%==3 GOTO Wow
 IF /I %M%==C GOTO Calc
+IF /I %M%==E GOTO Extracting
 IF /I %M%==I GOTO Info
 IF /I %M%==X EXIT
 :Start
@@ -134,6 +138,20 @@ echo Previous Answer: %ans%
 goto Calc1
 pause
 exit
+:Extracting
+cls
+cd RAR
+IF NOT EXIST Extracted mkdir Extracted
+cls
+echo. Place your RAR Files inside the RAR Folder.
+echo.
+echo. Press any key to extract rar files...
+pause>nul
+..\UnRAR_32.exe x -u -y "RAR\*.rar" "RAR\Extracted\"
+echo. EXTRACTING DONE! You will find your extracted files inside:
+echo. RAR\Extracted\
+pause
+GOTO Menu
 :Wow
 cls
 explorer http://www.lichborn-wow.com
