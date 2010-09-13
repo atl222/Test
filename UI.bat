@@ -17,6 +17,7 @@ echo.
 pause
 GOTO Menu
 :menu
+color 0A
 cls
 echo.
 echo                         %date%
@@ -38,13 +39,18 @@ echo  C - Calculator (Starts a Calculator in this window, UI opens in a second o
 echo  I - Requirements for this application
 echo  X - Exit
 echo.
-SET /P M=Type a number for your result : 
+SET /P M=Type a number/letter for your result : 
 IF %M%==1 GOTO Start
 IF %M%==2 GOTO Restart
 IF %M%==3 GOTO Wow
 IF /I %M%==C GOTO Calc
 IF /I %M%==I GOTO Info
 IF /I %M%==X EXIT
+IF /I %M%==* color 0C
+IF /I %M%==* echo. Invalid Command!
+IF /I %M%==* echo. Press a key to return to the Menu.
+IF /I %M%==* pause>nul
+IF /I %M%==* goto menu
 
 :Start
 cls
