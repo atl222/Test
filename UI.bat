@@ -17,7 +17,6 @@ echo.
 pause
 GOTO Menu
 :menu
-color 0A
 cls
 echo.
 echo                         %date%
@@ -46,7 +45,6 @@ IF %M%==3 GOTO Wow
 IF /I %M%==C GOTO Calc
 IF /I %M%==I GOTO Info
 IF /I %M%==X EXIT
-IF /I %M%== * goto Unknown
 :Start
 cls
 SET /P M=Do you only want MaNGOS (Y) or MaNGOS + SD2(N)
@@ -114,14 +112,6 @@ echo  Note : Warnings are normal , but errors aren't - if you get any errors you
 echo.
 pause
 GOTO Menu
-:Unknown
-color 0C
-echo. Unknown Command! Please type a valid letter/number!
-echo.
-color 0A
-echo. Press a key to return to the menu.
-pause>nul
-goto Menu
 :Calc
 cls
 title Atlantis Project Calculator
