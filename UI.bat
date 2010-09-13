@@ -151,6 +151,7 @@ cls
 ..\UnRAR_32.exe x -u -y "*.rar" "Extracted\"
 pause
 cd ..\
+cls
 echo. EXTRACTING DONE! You will find your extracted files inside:
 echo. %foldername%\RAR\Extracted\
 pause
