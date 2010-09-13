@@ -145,11 +145,14 @@ IF NOT EXIST Extracted mkdir Extracted
 cls
 echo. Place your RAR Files inside the RAR Folder.
 echo.
-echo. Press any key to extract rar files...
+echo. Press any key to extract the rar files...
 pause>nul
-..\UnRAR_32.exe x -u -y "RAR\*.rar" "RAR\Extracted\"
+cls
+..\UnRAR_32.exe x -u -y "*.rar" "Extracted\"
+pause
+cd ..\
 echo. EXTRACTING DONE! You will find your extracted files inside:
-echo. RAR\Extracted\
+echo. %foldername%\RAR\Extracted\
 pause
 GOTO Menu
 :Wow
