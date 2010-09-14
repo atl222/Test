@@ -145,6 +145,7 @@ IF NOT EXIST Extracted mkdir Extracted
 cls
 echo. Place your RAR Files inside the RAR Folder.
 echo.
+explorer ../RAR
 echo. Press any key to extract the rar files...
 pause>nul
 cls
