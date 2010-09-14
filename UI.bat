@@ -31,8 +31,8 @@ echo. บ S        S  S   SSSSS S        S  S    S    S    S   sssss บ
 echo  บ                         Project                            บ
 echo  บ             Copyright 2010 All Rights Reserved             บ      
 echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ                                                        
-echo. 
-echo.           
+echo.   
+echo.         
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
 echo  2 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
 echo  3 - LichBorn WoW
@@ -41,24 +41,24 @@ echo  E - RAR Extractor (Extracts Any RAR Files with 1 Click)
 echo  I - Requirements for this application
 echo  X - Exit
 echo.
-SET /P M=Type a number/letter for your result : 
-IF %M%==1 GOTO Start
-IF %M%==2 GOTO Restart
-IF %M%==3 GOTO Wow
-IF /I %M%==C GOTO Calc
-IF /I %M%==E GOTO Extracting
-IF /I %M%==I GOTO Info
-IF /I %M%==X EXIT
+SET /P Option=Type a number/letter for your result : 
+IF %Option%==1 GOTO Start
+IF %Option%==2 GOTO Restart
+IF %Option%==3 GOTO Wow
+IF /I %Option%==C GOTO Calc
+IF /I %Option%==E GOTO Extracting
+IF /I %Option%==I GOTO Info
+IF /I %Option%==X EXIT
 :Start
 cls
-SET /P M=Do you only want MaNGOS (Y) or MaNGOS + SD2(N)
-IF /I %M%==Y GOTO Mangos1
-IF /I %M%==N GOTO Mangos
+SET /P Core=Do you only want MaNGOS (Y) or MaNGOS + SD2(N)
+IF /I %Core%==Y GOTO Mangos1
+IF /I %Core%==N GOTO Mangos
 :Mangos1
 cls
-SET /P M=Do you want to Release (Y) or Debug (N) the core?  
-IF /I %M%==Y SET debug=Release
-IF /I %M%==N set debug=debug
+SET /P Compile=Do you want to Release (Y) or Debug (N) the core?  
+IF /I %Compile%==Y SET debug=Release
+IF /I %Compile%==N set debug=debug
 cls
 echo. Core is going to compile now.
 echo.
@@ -78,9 +78,9 @@ pause
 GOTO Menu
 :Mangos
 cls
-SET /P M=Do you want to release (Y) or Debug (N) the core?  
-IF /I %M%==Y SET debug=Release
-IF /I %M%==N SET debug=debug
+SET /P SD2=Do you want to release (Y) or Debug (N) the core?  
+IF /I %SD2%==Y SET debug=Release
+IF /I %SD2%==N SET debug=debug
 cls
 echo. Core is going to compile now.
 echo.
