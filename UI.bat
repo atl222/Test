@@ -32,7 +32,8 @@ echo  บ                         Project                            บ
 echo  บ             Copyright 2010 All Rights Reserved             บ      
 echo  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ                                                        
 echo.   
-echo.         
+echo  Welcome to the Atlantis project , %USERNAME%
+echo.      
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
 echo  2 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
 echo  3 - LichBorn WoW
@@ -50,6 +51,7 @@ IF /I %Option%==C GOTO Calc
 IF /I %Option%==E GOTO Extracting
 IF /I %Option%==H GOTO Relax
 IF /I %Option%==I GOTO Info
+IF /I %Option%==Test GOTO Gcompile
 IF /I %Option%==X EXIT
 :Start
 cls
@@ -206,6 +208,34 @@ IF ERRORLEVEL 1 START mangosd.exe
 del /Q /F result.txt
 cls
 GOTO Check2
+:GCompile
+rem Experimental option , not working fully , yet.
+cls
+echo. Please enter the github address of the MaNGOS Core you wish to compile :
+echo  Note : The github must address must end with Mangos (Experimental)
+set /P Location=Address : 
+pause
+cls
+SET /P Compile=Do you want to Release (Y) or Debug (N) the core?  
+IF /I %Compile%==Y SET debug=Release
+IF /I %Compile%==N set debug=debug
+cls
+echo. Core is going to compile now.
+echo.
+pause
+cls
+IF EXIST mangos rmdir /s /q mangos
+IF NOT EXIST Mangos git\bin\git.exe clone %Location%
+cls
+pushd %CD%
+cd mangos
+%WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe win\mangosdVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
+pause
+cls
+echo. Your compiled Core is now located inside mangos\bin folder.
+echo.
+pause
+GOTO atl
 :Hangman
 title Atlantis Project - Hangman
 setlocal enabledelayedexpansion
