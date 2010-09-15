@@ -237,8 +237,7 @@ IF EXIST %Repo% rmdir /s /q %Repo%
 IF NOT EXIST %Repo% git\bin\git.exe clone git://github.com/%Profile%/%Repo%
 cls
 pushd %CD%
-cd %Repo%
-%WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe win\mangosdVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
+%WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe %Repo%\win\mangosdVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
 pause
 cls
 echo. Your compiled core should be located inside the %Repo%/Bin folder!
