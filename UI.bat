@@ -213,10 +213,10 @@ GOTO Check2
 rem Experimental option , not working fully , yet.
 cls
 echo. Enter the core address from GITHUB (exp. git://github.com/mangos/mangos.git)
-set /P %Location%=Address :
+set /P Location=Address : 
 cls
 echo. Enter the core repository wihtout (exp. : Mangos , Core).
-set /P %Repo%=Repository name : 
+set /P Repo=Repository name : 
 cls
 SET /P Compile=Do you want to Release (Y) or Debug (N) the core?  
 IF /I %Compile%==Y SET debug=Release
