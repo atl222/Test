@@ -211,10 +211,11 @@ GOTO Check2
 :GCompile
 rem Experimental option , not working fully , yet.
 cls
-echo. Please enter the github address of the MaNGOS Core you wish to compile :
-echo  Note : The github must address must end with Mangos (Experimental)
-set /P Location=Address : 
-pause
+echo. Enter the name of the Git profile that contains the core(exp. Atl222).
+set /P %Profile%=Profile :
+cls
+echo. Enter the core repository wihtout .git extension(exp. : Mangos , Core).
+set /P %Location%=Repository name : 
 cls
 SET /P Compile=Do you want to Release (Y) or Debug (N) the core?  
 IF /I %Compile%==Y SET debug=Release
@@ -225,10 +226,10 @@ echo.
 pause
 cls
 IF EXIST mangos rmdir /s /q mangos
-IF NOT EXIST Mangos git\bin\git.exe clone %Location%
+IF NOT EXIST Mangos git\bin\git.exe clone git://github.com/%Profile%/%Location%.git
 cls
 pushd %CD%
-cd mangos
+cd %Location%
 %WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe win\mangosdVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
 pause
 cls
