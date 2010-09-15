@@ -35,8 +35,9 @@ echo.
 echo  Welcome to the Atlantis project , %USERNAME%
 echo.      
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
-echo  2 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
-echo  3 - LichBorn WoW
+echo  2 - Compile a core from a specific GITHUB address (Experimental)
+echo  3 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
+echo  4 - LichBorn WoW
 echo  C - Calculator (Starts a Calculator in this window, UI opens in a second one)
 echo  E - RAR Extractor (Extracts Any RAR Files with 1 Click)
 echo  H - Hangman (Relax with a game of Hangman)
@@ -45,13 +46,13 @@ echo  X - Exit
 echo.
 SET /P Option=Type a number/letter for your result : 
 IF %Option%==1 GOTO Start
-IF %Option%==2 GOTO Restart
-IF %Option%==3 GOTO Wow
+IF %Option%==2 GOTO Gcompile
+IF %Option%==3 GOTO Restart
+IF %Option%==4 GOTO Wow
 IF /I %Option%==C GOTO Calc
 IF /I %Option%==E GOTO Extracting
 IF /I %Option%==H GOTO Relax
 IF /I %Option%==I GOTO Info
-IF /I %Option%==Test GOTO Gcompile
 IF /I %Option%==X EXIT
 :Start
 cls
@@ -211,11 +212,11 @@ GOTO Check2
 :GCompile
 rem Experimental option , not working fully , yet.
 cls
-echo. Enter the name of the Git profile that contains the core(exp. Atl222).
-set /P %Profile%=Profile :
+echo. Enter the core address from GITHUB (exp. git://github.com/mangos/mangos.git)
+set /P %Location%=Address :
 cls
-echo. Enter the core repository wihtout .git extension(exp. : Mangos , Core).
-set /P %Location%=Repository name : 
+echo. Enter the core repository wihtout (exp. : Mangos , Core).
+set /P %Repo%=Repository name : 
 cls
 SET /P Compile=Do you want to Release (Y) or Debug (N) the core?  
 IF /I %Compile%==Y SET debug=Release
@@ -226,10 +227,10 @@ echo.
 pause
 cls
 IF EXIST mangos rmdir /s /q mangos
-IF NOT EXIST Mangos git\bin\git.exe clone git://github.com/%Profile%/%Location%.git
+IF NOT EXIST Mangos git\bin\git.exe clone %Location%
 cls
 pushd %CD%
-cd %Location%
+cd %Repo%
 %WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe win\mangosdVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
 pause
 cls
