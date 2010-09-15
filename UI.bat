@@ -65,7 +65,7 @@ SET /P Compile=Do you want to Release (Y) or Debug (N) the core?
 IF /I %Compile%==Y SET debug=Release
 IF /I %Compile%==N set debug=debug
 cls
-echo. Core is going to compile now.
+echo. Core is going to download and compile now.
 echo.
 pause
 cls
@@ -79,6 +79,10 @@ pause
 cls
 echo. Your compiled Core is now located inside mangos\bin folder.
 echo.
+echo  Note : If you had any errors during the download/compile, the core didn't compile.
+echo.
+echo  Warrnings are normal
+echo.
 pause
 GOTO atl
 :Mangos
@@ -87,7 +91,7 @@ SET /P SD2=Do you want to release (Y) or Debug (N) the core?
 IF /I %SD2%==Y SET debug=Release
 IF /I %SD2%==N SET debug=debug
 cls
-echo. Core is going to compile now.
+echo. Core is going to download and compile now.
 echo.
 pause
 cls
@@ -117,7 +121,10 @@ cd src\bindings\ScriptDev2
 pause
 cls
 echo. Your compiled Core is now located inside mangos\bin folder.
-echo  Note : Warnings are normal , but errors aren't - if you get any errors your core didn't compile correctly.
+echo.
+echo  Note : If you had any errors during the download/compile, the core didn't compile.
+echo.
+echo  Warnings are normal.
 echo.
 pause
 GOTO atl
@@ -212,29 +219,31 @@ GOTO Check2
 :GCompile
 rem Experimental option , not working fully , yet.
 cls
-echo. Enter the core address from GITHUB (exp. git://github.com/mangos/mangos.git)
-set /P Location=Address : 
+echo. Enter the github profile name that contains the desired core (exp. Atl222)
+set /P Profile=Address (case sensetive) : 
 cls
-echo. Enter the core repository wihtout (exp. : Mangos , Core).
-set /P Repo=Repository name : 
+echo. Enter the core repository (exp. : Mangos , Core).
+set /P Repo=Repository (case sensetive) : 
 cls
 SET /P Compile=Do you want to Release (Y) or Debug (N) the core?  
 IF /I %Compile%==Y SET debug=Release
 IF /I %Compile%==N set debug=debug
 cls
-echo. Core is going to compile now.
+echo. Core is going to download/compile now.
 echo.
 pause
 cls
 IF EXIST mangos rmdir /s /q mangos
-IF NOT EXIST Mangos git\bin\git.exe clone %Location%
+IF NOT EXIST Mangos git\bin\git.exe clone git://github.com/%Profile%/%Repo%
 cls
 pushd %CD%
 cd %Repo%
 %WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe win\mangosdVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
 pause
 cls
-echo. Your compiled Core is now located inside mangos\bin folder.
+echo. Your compiled core should be located inside the %Repo%/Bin folder!
+echo.
+echo  Note : If you had any errors during the download/compile, the core didn't compile.
 echo.
 pause
 GOTO atl
