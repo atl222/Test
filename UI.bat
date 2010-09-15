@@ -35,7 +35,7 @@ echo.
 echo  Welcome to the Atlantis project , %USERNAME%
 echo.      
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
-echo  2 - Compile a core from a specific GITHUB address (Experimental)
+echo  2 - Compile a core from a specific GITHUB address (May have some errors)
 echo  3 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
 echo  4 - LichBorn WoW
 echo  C - Calculator (Starts a Calculator in this window, UI opens in a second one)
@@ -233,8 +233,8 @@ echo. Core is going to download/compile now.
 echo.
 pause
 cls
-IF EXIST mangos rmdir /s /q mangos
-IF NOT EXIST Mangos git\bin\git.exe clone git://github.com/%Profile%/%Repo%
+IF EXIST %Repo% rmdir /s /q %Repo%
+IF NOT EXIST %Repo% git\bin\git.exe clone git://github.com/%Profile%/%Repo%
 cls
 pushd %CD%
 cd %Repo%
