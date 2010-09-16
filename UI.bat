@@ -51,6 +51,7 @@ IF %Option%==1 GOTO Start
 IF %Option%==2 GOTO Gcompile
 IF %Option%==3 GOTO Restart
 IF %Option%==4 GOTO Wow
+IF %Option%==5 Goto Database
 IF /I %Option%==C GOTO Calc
 IF /I %Option%==E GOTO Extracting
 IF /I %Option%==H GOTO Relax
