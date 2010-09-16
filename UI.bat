@@ -12,7 +12,6 @@ IF NOT EXIST mysql.exe xcopy Test\mysql.exe "." /i /e /y
 rmdir /s /q Test
 rmdir /s /q Test2
 IF NOT EXIST RAR mkdir RAR
-set mysql_folder=mysql.exe
 cls
 echo. UI has been updated
 echo.
@@ -220,7 +219,6 @@ del /Q /F result.txt
 cls
 GOTO Check2
 :GCompile
-rem Experimental option , not working fully , yet.
 cls
 echo. Enter the github profile name that contains the desired core (exp. Atl222)
 set /P Profile=Address (case sensetive) : 
@@ -248,41 +246,39 @@ echo.
 echo  Note : If you had any errors during the download/compile, the core didn't compile.
 echo.
 pause
-GOTO atl
-rem Experimental!
 cls
-set /P DB=Do you want to import the database? (Y/N)
+set /P DB=Do you want to import the database updates? (Y/N)
 IF /I %DB%=N Goto Atl
 IF /I %DB%=Y GOTO Database
 :Database
 cls
-set /p svr=What is your MySQL host name?	[Default:localhost]		: 
+set /p svr=What is your MySQL host name?	[Default: localhost]		: 
 if %svr%. == . set svr=localhost
-set /p user=What is your MySQL user name?	[Default:root]			: 
+set /p user=What is your MySQL user name?	[Default: root]			: 
 if %user%. == . set user=root
-set /p pass=What is your MySQL password?	[Default:mangos]		: 
+set /p pass=What is your MySQL password?	[Default: mangos]		: 
 if %pass%. == . set pass=mangos
-set /p port=What is your MySQL port?	[Default:3306]			: 
+set /p port=What is your MySQL port?	[Default: 3306]			: 
 if %port%. == . set port=3306
 cls
-set /p scriptdev2db=What is your ScriptDev2 DB name?	[Default:scriptdev2]        : 
+set /p scriptdev2db=What is your ScriptDev2 DB name?	[Default: scriptdev2]        : 
 if %scriptdev2db%. == . set scriptdev2db=scriptdev2
-set /p mangosdb=What is your MaNGOS DB name?		[Default:mangos]        : 
+set /p mangosdb=What is your MaNGOS DB name?		[Default: mangos]        : 
 if %mangosdb%. == . set mangosdb=mangos
-set /p charactersdb=What is your characters DB name?	[Default:characters]        : 
+set /p charactersdb=What is your characters DB name?	[Default: characters]        : 
 if %charactersdb%. == . set charactersdb=characters
-set /p realmddb=What is your realmd DB name?		[Default:realmd]        : 
+set /p realmddb=What is your realmd DB name?		[Default: realmd]        : 
 if %realmddb%. == . set realmddb=realmd
 cls
-for %%i in (%Repo%\sql\updates\0.16\*_mangos*.sql) do echo %%i & %mysql_folder% -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
-for %%i in (%Repo%\sql\updates\0.16\*_realmd*.sql) do echo %%i & %mysql_folder% -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
-for %%i in (%Repo%\sql\updates\0.16\*_characters*.sql) do echo %%i & %mysql_folder% -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
+for %%i in (%Repo%\sql\updates\0.16\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+for %%i in (%Repo%\sql\updates\0.16\*_realmd*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
+for %%i in (%Repo%\sql\updates\0.16\*_characters*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
 cls
-for %%i in (%Repo%\sql\updates\*_mangos*.sql) do echo %%i & %mysql_folder% -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
-for %%i in (%Repo%\sql\updates\*_realmd*.sql) do echo %%i & %mysql_folder% -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
-for %%i in (%Repo%\sql\updates\*_characters*.sql) do echo %%i & %mysql_folder% -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
-for %%i in ("%Repo%\src\bindings\ScriptDev2\sql\Updates\*_scriptdev2.sql") do echo %%i & %mysql_folder% -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %scriptdev2db% < %%i
-for %%i in ("%Repo%\src\bindings\ScriptDev2\sql\Updates\*_mangos.sql") do echo %%i & %mysql_folder% -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+for %%i in (%Repo%\sql\updates\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+for %%i in (%Repo%\sql\updates\*_realmd*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
+for %%i in (%Repo%\sql\updates\*_characters*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
+for %%i in ("%Repo%\src\bindings\ScriptDev2\sql\Updates\*_scriptdev2.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %scriptdev2db% < %%i
+for %%i in ("%Repo%\src\bindings\ScriptDev2\sql\Updates\*_mangos.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
 echo.
 pause
 cls
