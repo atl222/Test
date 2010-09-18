@@ -12,6 +12,7 @@ IF NOT EXIST mysql.exe xcopy Test\mysql.exe "." /i /e /y
 rmdir /s /q Test
 rmdir /s /q Test2
 IF NOT EXIST RAR mkdir RAR
+set Version=Version 0.6
 cls
 echo. UI has been updated
 echo.
@@ -33,7 +34,8 @@ echo. X  S        S  S   SSSSS S        S  S    S    S    S   SSSSS  X
 echo  X                          Project                             X
 echo  X              Copyright 2010 All Rights Reserved              X      
 echo  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                       
-echo.   
+echo.                                                    %Version%
+echo.                  
 echo  Welcome to the Atlantis project , %USERNAME%
 echo.      
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
