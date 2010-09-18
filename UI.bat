@@ -196,7 +196,7 @@ GOTO Atl
 cls
 title Atlantis Project Restarter v0.4
 Start UI.bat
-goto Check1
+goto Check
 :Relax
 cls
 Start UI.bat
