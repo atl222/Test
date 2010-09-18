@@ -1,11 +1,35 @@
-        ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป           
-        บ     SS    SSSSS S         SS      SS   s  SSSSS  S   SSSSS บ 
-        บ    S  S     S   S        S  S     S S  S    S    S   S     บ  
-        บ   SSSSSS    S   S       SSSSSS    S  S S    S    S   SSSSS บ
-        บ  S      S   S   S      S      S   S   SS    S    S       S บ
-        บ S        S  S   SSSSS S        S  S    S    S    S   sssss บ
-        บ                         Project                            บ
-        บ             Copyright 2010 All Rights Reserved             บ      
-        ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ                                                        
+        ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ          
+        ๏ฟฝ     SS    SSSSS S         SS      SS   s  SSSSS  S   SSSSS ๏ฟฝ 
+        ๏ฟฝ    S  S     S   S        S  S     S S  S    S    S   S     ๏ฟฝ  
+        ๏ฟฝ   SSSSSS    S   S       SSSSSS    S  S S    S    S   SSSSS ๏ฟฝ
+        ๏ฟฝ  S      S   S   S      S      S   S   SS    S    S       S ๏ฟฝ
+        ๏ฟฝ S        S  S   SSSSS S        S  S    S    S    S   sssss ๏ฟฝ
+        ๏ฟฝ                         Project                            ๏ฟฝ
+        ๏ฟฝ             Copyright 2010 All Rights Reserved             ๏ฟฝ      
+        ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ  
 
+Note : This is a learning project.
+
+=============================================================================== 
+
+Reason :
+
+Atlantis project is a DOS coded program that was mainly started to create a
+program that would compile different MaNGOS Cores (In early stages , and other
+emulator cores later). It allows you to compile a clean MaNGOS core from github
+and any core of your selection from github.                                            
+
+===============================================================================
+
+Functions :
+
+Atlantis project (UI.bat)currently allows you to compile different emulator
+cores(explained above), restart any emulator servers (MaNGOS , ArcEmu , 
+Ascent....), update your database , execute different SQL files , or just relax
+with a game of Hangman - Those are the currently working functions , a lot more
+will functions will be added over time.
+
+===============================================================================
+
+Will update README file over time.
 		
