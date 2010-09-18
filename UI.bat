@@ -23,15 +23,16 @@ GOTO Atl
 cls
 echo.
 echo                         %date%
-echo. ������������������������������������������������������������ͻ           
-echo  �     SS    SSSSS S         SS      SS   s  SSSSS  S   SSSSS � 
-echo  �    S  S     S   S        S  S     S S  S    S    S   S     �  
-echo. �   SSSSSS    S   S       SSSSSS    S  S S    S    S   SSSSS �
-echo  �  S      S   S   S      S      S   S   SS    S    S       S �
-echo. � S        S  S   SSSSS S        S  S    S    S    S   sssss �
-echo  �                         Project                            �
-echo  �             Copyright 2010 All Rights Reserved             �      
-echo  ������������������������������������������������������������ͼ                                                        
+echo. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          
+echo  X                                                              X
+echo  X      SS    SSSSS S         SS      SS   S  SSSSS  S   SSSSS  X
+echo  X     S  S     S   S        S  S     S S  S    S    S   S      X  
+echo. X    SSSSSS    S   S       SSSSSS    S  S S    S    S   SSSSS  X
+echo  X   S      S   S   S      S      S   S   SS    S    S       S  X
+echo. X  S        S  S   SSSSS S        S  S    S    S    S   SSSSS  X
+echo  X                          Project                             X
+echo  X              Copyright 2010 All Rights Reserved              X      
+echo  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                       
 echo.   
 echo  Welcome to the Atlantis project , %USERNAME%
 echo.      
@@ -46,6 +47,9 @@ echo  I - Requirements for this application
 echo  X - Exit
 echo.
 SET /P Option=Type a number/letter for your result : 
+if %M%. == . Echo Invalid Choice
+if %M%. == . pause
+if %M%. == . Goto atl
 IF %Option%==1 GOTO Start
 IF %Option%==2 GOTO Gcompile
 IF %Option%==3 GOTO Restart
