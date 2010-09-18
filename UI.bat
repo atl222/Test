@@ -47,9 +47,9 @@ echo  I - Requirements for this application
 echo  X - Exit
 echo.
 SET /P Option=Type a number/letter for your result : 
-if %M%. == . Echo Invalid Choice
-if %M%. == . pause
-if %M%. == . Goto atl
+if %Option%. == . Echo Invalid Choice
+if %Option%. == . pause
+if %Option%. == . Goto atl
 IF %Option%==1 GOTO Start
 IF %Option%==2 GOTO Gcompile
 IF %Option%==3 GOTO Restart
