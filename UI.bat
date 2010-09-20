@@ -38,9 +38,9 @@ echo.                                                    %Version%
 echo.                  
 echo  Welcome to the Atlantis project , %USERNAME%
 echo.      
-echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS Core)
-echo  2 - Compile a core from a specific GITHUB address (May have some errors)
-echo  3 - Start a MaNGOS Server Restarter v0.3 (Needs to be inside core folder)
+echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS(+SD2) Core)
+echo  2 - Compile a core from a specific GITHUB address
+echo  3 - Start Server Restarter v0.4 (Needs to be inside core folder)
 echo  4 - LichBorn WoW
 echo  C - Calculator (Starts a Calculator in this window, UI opens in a second one)
 echo  E - RAR Extractor (Extracts Any RAR Files with 1 Click)
