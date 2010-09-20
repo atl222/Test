@@ -2,8 +2,13 @@ title Atlantis Project
 @echo off
 color 0A
 mode con cols=110 lines=38
+IF NOT EXIST Git\bin\git.exe echo. Error! Cannot find Git.exe
+IF NOT EXIST Git\bin\git.exe echo  Application will close now
+IF NOT EXIST Git\bin\git.exe pause
+IF NOT EXIST Git\bin\git.exe exit
 IF EXIST Test rmdir /s /q test
 IF NOT EXIST Test git\bin\git.exe clone git://github.com/atl222/Test.git
+rem Gonna speed-up the update proccess later
 IF NOT EXIST pv.exe git\bin\git.exe clone git://github.com/atl222/Test2.git
 xcopy Test\UI.bat "." /i /e /y
 xcopy Test2\pv.exe "." /i /e /y
