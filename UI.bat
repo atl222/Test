@@ -29,16 +29,16 @@ GOTO Atl
 cls
 echo.
 echo                         %date%
-echo. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          
-echo  X                                                              X
-echo  X      SS    SSSSS S         SS      SS   S  SSSSS  S   SSSSS  X
-echo  X     S  S     S   S        S  S     S S  S    S    S   S      X  
-echo. X    SSSSSS    S   S       SSSSSS    S  S S    S    S   SSSSS  X
-echo  X   S      S   S   S      S      S   S   SS    S    S       S  X
-echo. X  S        S  S   SSSSS S        S  S    S    S    S   SSSSS  X
-echo  X                          Project                             X
-echo  X              Copyright 2010 All Rights Reserved              X      
-echo  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                                       
+echo. ╔══════════════════════════════════════════════════════════════╗        
+echo  ║                                                              ║
+echo  ║      SS    SSSSS S         SS      SS   S  SSSSS  S   SSSSS  ║
+echo  ║     S  S     S   S        S  S     S S  S    S    S   S      ║  
+echo. ║    SSSSSS    S   S       SSSSSS    S  S S    S    S   SSSSS  ║
+echo  ║   S      S   S   S      S      S   S   SS    S    S       S  ║
+echo. ║  S        S  S   SSSSS S        S  S    S    S    S   SSSSS  ║
+echo  ║                          Project                             ║
+echo  ║              Copyright 2010 All Rights Reserved              ║      
+echo  ╚══════════════════════════════════════════════════════════════╝                                                  
 echo.                                                    %Version%
 echo.                  
 echo  Welcome to the Atlantis project , %USERNAME%
