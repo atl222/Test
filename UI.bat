@@ -95,6 +95,41 @@ echo  Note : If you had any errors during the download/compile, the core didn't 
 echo.
 echo  Warrnings are normal
 echo.
+cls
+pause
+set /P DBUpdate=Do you want UI to update your database with the needed Core updates(Y/N)?
+IF /I %DBUpdate%==Y GOTO Mangos1DB
+IF /I %DBUpdate%==N GOTO Atl
+:Mangos1DB
+rem Gonna clean up the code later
+cls
+set /p svr=What is your MySQL host name?	[Default: localhost]		: 
+if %svr%. == . set svr=localhost
+set /p user=What is your MySQL user name?	[Default: root]			: 
+if %user%. == . set user=root
+set /p pass=What is your MySQL password?	[Default: mangos]		: 
+if %pass%. == . set pass=mangos
+set /p port=What is your MySQL port?	[Default: 3306]			: 
+if %port%. == . set port=3306
+cls
+set /p scriptdev2db=What is your ScriptDev2 DB name?	[Default: scriptdev2]        : 
+if %scriptdev2db%. == . set scriptdev2db=scriptdev2
+set /p mangosdb=What is your MaNGOS DB name?		[Default: mangos]        : 
+if %mangosdb%. == . set mangosdb=mangos
+set /p charactersdb=What is your characters DB name?	[Default: characters]        : 
+if %charactersdb%. == . set charactersdb=characters
+set /p realmddb=What is your realmd DB name?		[Default: realmd]        : 
+if %realmddb%. == . set realmddb=realmd
+cls
+for %%i in (mangos\sql\updates\0.16\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+for %%i in (mangos\sql\updates\0.16\*_realmd*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
+for %%i in (mangos\sql\updates\0.16\*_characters*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
+cls
+for %%i in (mangos\sql\updates\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+for %%i in (mangos\sql\updates\*_realmd*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
+for %%i in (mangos\sql\updates\*_characters*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
+for %%i in ("mangos\src\bindings\ScriptDev2\sql\Updates\*_scriptdev2.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %scriptdev2db% < %%i
+for %%i in ("%mangos\src\bindings\ScriptDev2\sql\Updates\*_mangos.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
 pause
 GOTO atl
 :Mangos
@@ -139,7 +174,41 @@ echo.
 echo  Warnings are normal.
 echo.
 pause
-GOTO atl
+cls
+set /P Mangos2DB=Do you want the UI to update your Database with the needed Core(+SD) updates?(Y/N)
+IF /I %Mangos2DB%==Y GOTO Mangos2DBU
+IF /I %Mangos2DB%==N GOTO Atl
+:Mangos2DBU
+cls
+set /p svr=What is your MySQL host name?	[Default: localhost]		: 
+if %svr%. == . set svr=localhost
+set /p user=What is your MySQL user name?	[Default: root]			: 
+if %user%. == . set user=root
+set /p pass=What is your MySQL password?	[Default: mangos]		: 
+if %pass%. == . set pass=mangos
+set /p port=What is your MySQL port?	[Default: 3306]			: 
+if %port%. == . set port=3306
+cls
+set /p scriptdev2db=What is your ScriptDev2 DB name?	[Default: scriptdev2]        : 
+if %scriptdev2db%. == . set scriptdev2db=scriptdev2
+set /p mangosdb=What is your MaNGOS DB name?		[Default: mangos]        : 
+if %mangosdb%. == . set mangosdb=mangos
+set /p charactersdb=What is your characters DB name?	[Default: characters]        : 
+if %charactersdb%. == . set charactersdb=characters
+set /p realmddb=What is your realmd DB name?		[Default: realmd]        : 
+if %realmddb%. == . set realmddb=realmd
+cls
+for %%i in (mangos\sql\updates\0.16\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+for %%i in (mangos\sql\updates\0.16\*_realmd*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
+for %%i in (mangos\sql\updates\0.16\*_characters*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
+cls
+for %%i in (mangos\sql\updates\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+for %%i in (mangos\sql\updates\*_realmd*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
+for %%i in (mangos\sql\updates\*_characters*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
+for %%i in ("mangos\src\bindings\ScriptDev2\sql\Updates\*_scriptdev2.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %scriptdev2db% < %%i
+for %%i in ("mangos\src\bindings\ScriptDev2\sql\Updates\*_mangos.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+pause
+GOTO Atl
 :Calc
 cls
 title Atlantis Project Calculator
@@ -236,6 +305,7 @@ del /Q /F result.txt
 cls
 GOTO Check1
 :GCompile
+rem Gonna add specific SD2 Compile option in a day or two
 cls
 echo. Enter the github profile name that contains the desired core (exp. Atl222)
 set /P Profile=Address (case sensetive) : 
@@ -263,6 +333,7 @@ echo.
 echo  Note : If you had any errors during the download/compile, the core didn't compile.
 echo.
 pause
+rem Gonna add updates here
 cls
 set /P DB=Do you want to import the database updates? (Y/N)
 IF /I %DB%=N Goto Atl
