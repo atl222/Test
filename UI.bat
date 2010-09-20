@@ -29,16 +29,16 @@ GOTO Atl
 cls
 echo.
 echo                         %date%
-echo. ╔══════════════════════════════════════════════════════════════╗        
-echo  ║                                                              ║
-echo  ║      SS    SSSSS S         SS      SS   S  SSSSS  S   SSSSS  ║
-echo  ║     S  S     S   S        S  S     S S  S    S    S   S      ║  
-echo. ║    SSSSSS    S   S       SSSSSS    S  S S    S    S   SSSSS  ║
-echo  ║   S      S   S   S      S      S   S   SS    S    S       S  ║
-echo. ║  S        S  S   SSSSS S        S  S    S    S    S   SSSSS  ║
-echo  ║                          Project                             ║
-echo  ║              Copyright 2010 All Rights Reserved              ║      
-echo  ╚══════════════════════════════════════════════════════════════╝                                                  
+echo. ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::        
+echo  :                                                              :
+echo  :      SS    SSSSS S         SS      SS   S  SSSSS  S   SSSSS  :
+echo  :     S  S     S   S        S  S     S S  S    S    S   S      :  
+echo. :    SSSSSS    S   S       SSSSSS    S  S S    S    S   SSSSS  :
+echo  :   S      S   S   S      S      S   S   SS    S    S       S  :
+echo. :  S        S  S   SSSSS S        S  S    S    S    S   SSSSS  :
+echo  :                          Project                             :
+echo  :              Copyright 2010 All Rights Reserved              :      
+echo  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::                                                 
 echo.                                                    %Version%
 echo.                  
 echo  Welcome to the Atlantis project , %USERNAME%
