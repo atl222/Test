@@ -95,8 +95,8 @@ echo  Note : If you had any errors during the download/compile, the core didn't 
 echo.
 echo  Warrnings are normal
 echo.
-cls
 pause
+cls
 set /P DBUpdate=Do you want UI to update your database with the needed Core updates(Y/N)?
 IF /I %DBUpdate%==Y GOTO Mangos1DB
 IF /I %DBUpdate%==N GOTO Atl
