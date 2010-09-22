@@ -47,6 +47,7 @@ echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS(+SD2) Core)
 echo  2 - Compile a core from a specific GITHUB address
 echo  3 - Start Server Restarter v0.4 (Needs to be inside core folder)
 echo  4 - LichBorn WoW
+echo  5 - Compile a Core+SD2 from a specific GITHUB address (Experimental)
 echo  C - Calculator (Starts a Calculator in this window, UI opens in a second one)
 echo  E - RAR Extractor (Extracts Any RAR Files with 1 Click)
 echo  H - Hangman (Relax with a game of Hangman)
@@ -61,6 +62,7 @@ IF %Option%==1 GOTO Start
 IF %Option%==2 GOTO Gcompile
 IF %Option%==3 GOTO Restart
 IF %Option%==4 GOTO Wow
+IF %Option%==5 GOTO Gcompile2
 IF /I %Option%==C GOTO Calc
 IF /I %Option%==E GOTO Extracting
 IF /I %Option%==H GOTO Relax
@@ -305,7 +307,6 @@ del /Q /F result.txt
 cls
 GOTO Check1
 :GCompile
-rem Gonna add specific SD2 Compile option in a day or two
 cls
 echo. Enter the github profile name that contains the desired core (exp. Atl222)
 set /P Profile=Address (case sensetive) : 
@@ -373,6 +374,91 @@ cls
 echo. Database has been updated , "Duplicate" errors are normal.
 pause
 goto Atl
+:Gcompile2
+echo. Enter the github profile name that contains the desired core (exp. Atl222)
+set /P Profile=Address (case sensetive) : 
+cls
+echo. Enter the core repository (exp. : Mangos , Core).
+set /P Repo=Repository (case sensetive) : 
+cls
+echo. Enter the github profile name that contains the desired SD2 (exp. Atl222)
+set /P Profile2=Address (case sensetive) : 
+cls
+echo. Enter the SD2 repository (exp. : ScriptDev2 , SD2).
+set /P Repo2=Repository (case sensetive) : 
+cls
+SET /P SD2=Do you want to release (Y) or Debug (N) the core?  
+IF /I %SD2%==Y SET debug=Release
+IF /I %SD2%==N SET debug=debug
+cls
+echo. Core is going to download and compile now.
+echo.
+pause
+cls
+IF EXIST %Repo% rmdir /s /q %Repo%
+IF NOT EXIST Mangos git\bin\git.exe clone git://github.com/%Profile%/%Repo%
+cls
+pause
+pushd %CD%
+cd %Repo%
+%WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe win\mangosdVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
+pause
+cls
+cd src
+cd bindings
+IF EXIST %Repo2% rmdir %Repo2%
+IF NOT EXIST %Repo2% ..\..\..\git\bin\git.exe clone git://github.com/%Profile2%/%Repo2%
+rename "%Repo2%" "ScriptDev2"
+cls
+cd ../../../
+cd %Repo%
+pushd %CD%
+cd src\bindings\ScriptDev2
+%WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe scriptVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
+pause
+cls
+echo. Your compiled Core is now located inside %Repo%\bin folder.
+echo.
+echo  Note : If you had any errors during the download/compile, the core didn't compile.
+echo.
+echo  Warnings are normal.
+echo.
+pause
+cls
+set /P DB=Do you want to import the database updates? (Y/N)
+IF /I %DB%=N Goto Atl
+IF /I %DB%=Y GOTO Database2
+:Database2
+cls
+set /p svr=What is your MySQL host name?	[Default: localhost]		: 
+if %svr%. == . set svr=localhost
+set /p user=What is your MySQL user name?	[Default: root]			: 
+if %user%. == . set user=root
+set /p pass=What is your MySQL password?	[Default: mangos]		: 
+if %pass%. == . set pass=mangos
+set /p port=What is your MySQL port?	[Default: 3306]			: 
+if %port%. == . set port=3306
+cls
+set /p scriptdev2db=What is your ScriptDev2 DB name?	[Default: scriptdev2]        : 
+if %scriptdev2db%. == . set scriptdev2db=scriptdev2
+set /p mangosdb=What is your MaNGOS DB name?		[Default: mangos]        : 
+if %mangosdb%. == . set mangosdb=mangos
+set /p charactersdb=What is your characters DB name?	[Default: characters]        : 
+if %charactersdb%. == . set charactersdb=characters
+set /p realmddb=What is your realmd DB name?		[Default: realmd]        : 
+if %realmddb%. == . set realmddb=realmd
+cls
+for %%i in (%Repo%\sql\updates\0.16\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+for %%i in (%Repo%\sql\updates\0.16\*_realmd*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
+for %%i in (%Repo%\sql\updates\0.16\*_characters*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
+cls
+for %%i in (%Repo%\sql\updates\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+for %%i in (%Repo%\sql\updates\*_realmd*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
+for %%i in (%Repo%\sql\updates\*_characters*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
+for %%i in ("%Repo%\src\bindings\ScriptDev2\sql\Updates\*_scriptdev2.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %scriptdev2db% < %%i
+for %%i in ("%Repo%\src\bindings\ScriptDev2\sql\Updates\*_mangos.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+pause
+GOTO Atl
 :Hangman
 title Atlantis Project - Hangman
 setlocal enabledelayedexpansion
