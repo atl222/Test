@@ -71,6 +71,7 @@ IF /I %Option%==H GOTO Relax
 IF /I %Option%==I GOTO Info
 IF /I %Option%==X EXIT
 :Invalid
+cls
 color 0C
 echo. Error! Invalid Choice!
 pause
