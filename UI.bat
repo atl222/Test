@@ -6,7 +6,6 @@ color 0C
 IF NOT EXIST Git\bin\git.exe echo. Error! Cannot find Git.exe!
 IF NOT EXIST Git\bin\git.exe echo  Please install MysGIT inside the UI.bat folder!
 IF NOT EXIST Git\bin\git.exe echo  Application will now exit!
-
 IF NOT EXIST Git\bin\git.exe pause
 IF NOT EXIST Git\bin\git.exe exit
 color 0A
@@ -30,6 +29,7 @@ echo.
 pause
 GOTO Atl
 :Atl
+color 0A
 cls
 echo.
 echo                         %date%
@@ -59,9 +59,7 @@ echo  I - Requirements for this application
 echo  X - Exit
 echo.
 SET /P Option=Type a number/letter for your result : 
-if %Option%. == . Echo Invalid Choice
-if %Option%. == . pause
-if %Option%. == . Goto atl
+IF /I %Option%==* GOTO Invalid
 IF %Option%==1 GOTO Start
 IF %Option%==2 GOTO Gcompile
 IF %Option%==3 GOTO Restart
@@ -72,6 +70,11 @@ IF /I %Option%==E GOTO Extracting
 IF /I %Option%==H GOTO Relax
 IF /I %Option%==I GOTO Info
 IF /I %Option%==X EXIT
+:Invalid
+color 0C
+echo. Error! Invalid Choice!
+pause
+GOTO Atl
 :Start
 cls
 SET /P Core=Do you only want MaNGOS (Y) or MaNGOS + SD2(N)
