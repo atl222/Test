@@ -3,8 +3,10 @@ title Atlantis Project
 color 0A
 mode con cols=110 lines=38
 color 0C
-IF NOT EXIST Git\bin\git.exe echo. Error! Cannot find Git.exe
-IF NOT EXIST Git\bin\git.exe echo  Application will close now
+IF NOT EXIST Git\bin\git.exe echo. Error! Cannot find Git.exe!
+IF NOT EXIST Git\bin\git.exe echo  Please install MysGIT inside the UI.bat folder!
+IF NOT EXIST Git\bin\git.exe echo  Application will now exit!
+
 IF NOT EXIST Git\bin\git.exe pause
 IF NOT EXIST Git\bin\git.exe exit
 color 0A
