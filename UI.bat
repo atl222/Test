@@ -18,7 +18,7 @@ IF NOT EXIST mysql.exe xcopy Test\mysql.exe "." /i /e /y
 rmdir /s /q Test
 rmdir /s /q Test2
 IF NOT EXIST RAR mkdir RAR
-set Version=Version 0.6
+set Version=Version 0.7
 cls
 echo. UI has been updated
 echo.
@@ -371,6 +371,7 @@ echo. Database has been updated , "Duplicate" errors are normal.
 pause
 goto Atl
 :Gcompile2
+cls
 echo. Enter the github profile name that contains the desired core (exp. Atl222)
 set /P Profile=Address (case sensetive) : 
 cls
