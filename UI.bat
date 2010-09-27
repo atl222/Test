@@ -278,6 +278,7 @@ cls
 echo. This will create 2 diffrent files to restart your Mangosd.exe(world.exe) and Realmd.exe(Logon.exe)
 pause
 cls
+IF EXIST World.bat del World.bat
 set /P World=What is your World.exe(Mangosd.exe) name? : 
 echo @echo off >>World.bat
 echo title MP-CD World Restarter v0.85 >>World.bat
@@ -287,6 +288,7 @@ echo echo. MP-CD World Restarter v0.85! Enjoy! >>World.bat
 echo start /WAIT %World% >>World.bat
 echo GOTO World >>World.bat
 cls
+IF EXIST Logon.bat del Logon.bat
 set /P Logon=What is your Logon.exe(Realmd.exe) name? : 
 echo @echo off >>Logon.bat
 echo title MP-CD Logon Restarter v0.85 >>Logon.bat
@@ -296,9 +298,9 @@ echo echo. MP-CD Logon Restarter v0.85! Enjoy! >>Logon.bat
 echo start /WAIT %World% >>Logon.bat
 echo GOTO World >>Logon.bat
 cls
-echo. Done! World.bat and Logon.bat should be present in the UI.bat folder now!
-echo  Place World.bat and Logon.bat in the Core folder and start Logon.bat(First) and World.bat(Second)!
-echo  They will start your server and restart it if it crashes!
+echo.Done! World.bat and Logon.bat should be present in the UI.bat folder now!
+echo Place World.bat and Logon.bat in the Core folder and start Logon.bat(First) and World.bat(Second)!
+echo They will start your server and restart it if it crashes!
 echo.
 echo. Note : In order to change World and Logon name you need to run this function again.
 pause
