@@ -1,20 +1,19 @@
-        ����������������������������������������          
-        �     SS    SSSSS S         SS      SS   s  SSSSS  S   SSSSS � 
-        �    S  S     S   S        S  S     S S  S    S    S   S     �  
-        �   SSSSSS    S   S       SSSSSS    S  S S    S    S   SSSSS �
-        �  S      S   S   S      S      S   S   SS    S    S       S �
-        � S        S  S   SSSSS S        S  S    S    S    S   sssss �
-        �                         Project                            �
-        �             Copyright 2010 All Rights Reserved             �      
-        ���������������������������������������� 
-
+         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+         ::  S  S S  S    S    S      S         S    S   ::
+         ::  S   S   S    CSSSSS :::: S         S     S  ::
+         ::  S       S    S           S         S    S   ::
+         ::  S       S    S           SSSSSS    SSSSS    ::
+         ::      Copyright 2010 All Rights Reserved      ::
+         ::::::::::::::::::::::::::::::::::::::::::::::::::
+  
 Note : This is a learning project.
 
 =============================================================================== 
 
 Reason :
 
-Atlantis project is a DOS coded program that was mainly started to create a
+MP-CD (Multi Purpose - Compiling Device) project is a DOS coded program that was mainly started to create a
 program that would compile different MaNGOS Cores (In early stages , and other
 emulator cores later). It allows you to compile a clean MaNGOS core from github
 and any core of your selection from github.                                            
@@ -23,9 +22,9 @@ and any core of your selection from github.
 
 Functions :
 
-Atlantis project (UI.bat)currently allows you to compile different emulator
+MP-CD Application (UI.bat)currently allows you to compile different emulator
 cores(explained above), restart any emulator servers (MaNGOS , ArcEmu , 
-Ascent....), update your database , execute different SQL files , or just relax
+Ascent....), update your database , execute different SQL files , Portable Calculator , or just relax
 with a game of Hangman - Those are the currently working functions , a lot more
 will functions will be added over time.
 
