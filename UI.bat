@@ -280,7 +280,7 @@ pause
 GOTO Atl
 :Restart
 cls
-title Atlantis Project Restarter v0.4
+title Atlantis Project Restarter v0.8
 Start UI.bat
 goto Check
 :Relax
@@ -289,29 +289,21 @@ Start UI.bat
 goto Hangman
 :Check
 cls
-set /P Logon=What is your Logon.exe(Realmd) file name? 
+set /P Logon=What is your Logon.exe(Realmd.exe) file name? 
 cls
-set /P World=What is your World.exe(Mangosd) file name?
+set /P World=What is your World.exe(Mangosd.exe) file name?
 cls
 GOTO Check1
 :Check1
 echo.
-echo Atlantis Project Restarter v0.4! Enjoy!
-pv.exe -d15000
-pv.exe > result.txt
-FIND "%Logon%" result.txt
-IF ERRORLEVEL 1 START %logon%
-del /Q /F result.txt
-cls
+echo Atlantis Project Restarter v0.8! Enjoy!
+start /WAIT %Logon%
 GOTO Check2
+cls
 :Check2
 echo.
-echo Atlantis Project Restarter v0.4! Enjoy!
-pv.exe -d15000
-pv.exe > result.txt
-FIND "%World%" result.txt
-IF ERRORLEVEL 1 START %World%
-del /Q /F result.txt
+echo Atlantis Project Restarter v0.8! Enjoy!
+start /WAIT %World%
 cls
 GOTO Check1
 :GCompile
