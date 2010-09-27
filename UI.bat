@@ -1,11 +1,12 @@
-title Atlantis Project
+title MP-CD Project
 @echo off
 color 0A
 mode con cols=110 lines=38
 color 0C
 IF NOT EXIST Git\bin\git.exe echo. Error! Cannot find Git.exe!
 IF NOT EXIST Git\bin\git.exe echo  Please install MysGIT inside the UI.bat folder!
-IF NOT EXIST Git\bin\git.exe echo  Application will now exit!
+rem Gonna add a git download command here
+IF NOT EXIST Git\bin\git.exe echo  MP-CD WIll now close!
 IF NOT EXIST Git\bin\git.exe pause
 IF NOT EXIST Git\bin\git.exe exit
 color 0A
@@ -33,23 +34,21 @@ color 0A
 cls
 echo.
 echo                         %date%
-echo. ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::        
-echo  :                                                              :
-echo  :      SS    SSSSS S         SS      SS   S  SSSSS  S   SSSSS  :
-echo  :     S  S     S   S        S  S     S S  S    S    S   S      :  
-echo. :    SSSSSS    S   S       SSSSSS    S  S S    S    S   SSSSS  :
-echo  :   S      S   S   S      S      S   S   SS    S    S       S  :
-echo. :  S        S  S   SSSSS S        S  S    S    S    S   SSSSS  :
-echo  :                          Project                             :
-echo  :              Copyright 2010 All Rights Reserved              :      
-echo  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::                                                 
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::                                              
 echo.                                                    %Version%
 echo.                  
-echo  Welcome to the Atlantis project , %USERNAME%
+echo  Welcome to the MP-CD project , %USERNAME%
 echo.      
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS(+SD2) Core)
 echo  2 - Compile a core from a specific GITHUB address
-echo  3 - Start Server Restarter v0.4 (Needs to be inside core folder)
+echo  3 - Start Server Restarter v0.8 (Needs to be inside core folder)
 echo  4 - LichBorn WoW
 echo  5 - Compile a Core+SD2 from a specific GITHUB address (Experimental)
 echo  C - Calculator (Starts a Calculator in this window, UI opens in a second one)
@@ -221,13 +220,13 @@ pause
 GOTO Atl
 :Calc
 cls
-title Atlantis Project Calculator
+title MP-CD Project Calculator
 Start UI.bat
 goto Calc1
 :Calc1
 color 0e
 echo --------------------------------------------------------------
-echo              Atlantis Project Calculator
+echo                 MP-CD Project Calculator
 echo --------------------------------------------------------------
 echo.
 set /p sum=
@@ -280,7 +279,7 @@ pause
 GOTO Atl
 :Restart
 cls
-title Atlantis Project Restarter v0.8
+title MP-CD Project Restarter v0.8
 Start UI.bat
 goto Check
 :Relax
@@ -296,13 +295,13 @@ cls
 GOTO Check1
 :Check1
 echo.
-echo Atlantis Project Restarter v0.8! Enjoy!
+echo MP-CD Project Restarter v0.8! Enjoy!
 start /WAIT %Logon%
 GOTO Check2
 cls
 :Check2
 echo.
-echo Atlantis Project Restarter v0.8! Enjoy!
+echo MP-CD Project Restarter v0.8! Enjoy!
 start /WAIT %World%
 cls
 GOTO Check1
@@ -460,7 +459,7 @@ for %%i in ("%Repo%\src\bindings\ScriptDev2\sql\Updates\*_mangos.sql") do echo %
 pause
 GOTO Atl
 :Hangman
-title Atlantis Project - Hangman
+title MP-CD Project - Hangman
 setlocal enabledelayedexpansion
 :menu
 cls
