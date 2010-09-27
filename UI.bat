@@ -45,7 +45,7 @@ echo  Welcome to the MP-CD project , %USERNAME%
 echo.      
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS(+SD2) Core)
 echo  2 - Compile a core from a specific GITHUB address
-echo  3 - Start Server Restarter v0.8 (Needs to be inside core folder)
+echo  3 - Server Restarter v0.85
 echo  4 - LichBorn WoW
 echo  5 - Compile a Core+SD2 from a specific GITHUB address (Experimental)
 echo  C - Calculator (Starts a Calculator in this window, UI opens in a second one)
@@ -275,7 +275,33 @@ pause
 GOTO Atl
 :Restarter
 cls
-echo. Temporary Disabled
+echo. This will create 2 diffrent files to restart your Mangosd.exe(world.exe) and Realmd.exe(Logon.exe)
+pause
+cls
+set /P World=What is your World.exe(Mangosd.exe) name? : 
+echo @echo off >>World.bat
+echo title MP-CD World Restarter v0.85 >>World.bat
+echo color 0A >>World.bat
+echo :World >>World.bat
+echo echo. MP-CD World Restarter v0.85! Enjoy! >>World.bat
+echo start /WAIT %World% >>World.bat
+echo GOTO World >>World.bat
+cls
+set /P Logon=What is your Logon.exe(Realmd.exe) name? : 
+echo @echo off >>Logon.bat
+echo title MP-CD Logon Restarter v0.85 >>Logon.bat
+echo color 0A >>Logon.bat
+echo :World >>Logon.bat
+echo echo. MP-CD Logon Restarter v0.85! Enjoy! >>Logon.bat
+echo start /WAIT %World% >>Logon.bat
+echo GOTO World >>Logon.bat
+cls
+echo. Done! World.bat and Logon.bat should be present in the UI.bat folder now!
+echo  Place World.bat and Logon.bat in the Core folder and start Logon.bat(First) and World.bat(Second)!
+echo  They will start your server and restart it if it crashes!
+echo.
+echo. Note : In order to change World and Logon name you need to run this function again.
+pause
 goto Atl
 :Relax
 cls
