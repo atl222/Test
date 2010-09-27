@@ -273,7 +273,7 @@ echo  Note : This list will increase as the application develops , make sure to 
 echo.
 pause
 GOTO Atl
-:Restarter
+:Restart
 cls
 echo. This will create 2 diffrent files to restart your Mangosd.exe(world.exe) and Realmd.exe(Logon.exe)
 pause
