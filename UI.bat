@@ -268,40 +268,19 @@ echo  - Visual Studio 2010
 echo. - Git (You need to install GIT in the same folder as this app - for now.)
 echo. - SDK Platform for Windows
 echo  - .Net Framework 4.0
-echo  - UI.bat needs to be located inside Mangosd/Realmd (Core) Folder for the restarter to work
 echo.
 echo  Note : This list will increase as the application develops , make sure to check it everytime UI.bat updates.
 echo.
 pause
 GOTO Atl
-:Restart
+:Restarter
 cls
-title MP-CD Project Restarter v0.8
-Start UI.bat
-goto Check
+echo. Temporary Disabled
+goto Atl
 :Relax
 cls
 Start UI.bat
 goto Hangman
-:Check
-cls
-set /P Logon=What is your Logon.exe(Realmd.exe) file name? 
-cls
-set /P World=What is your World.exe(Mangosd.exe) file name?
-cls
-GOTO Check1
-:Check1
-echo.
-echo MP-CD Project Restarter v0.8! Enjoy!
-start /WAIT %Logon%
-GOTO Check2
-cls
-:Check2
-echo.
-echo MP-CD Project Restarter v0.8! Enjoy!
-start /WAIT %World%
-cls
-GOTO Check1
 :GCompile
 cls
 echo. Enter the github profile name that contains the desired core (exp. Atl222)
