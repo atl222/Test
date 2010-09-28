@@ -3,7 +3,6 @@ title MP-CD Project
 color 0A
 mode con cols=110 lines=38
 color 0C
-IF NOT EXIST git\bin\git.exe GOTO Error1
 color 0A
 IF EXIST Test rmdir /s /q test
 IF NOT EXIST Test git\bin\git.exe clone git://github.com/atl222/Test.git
@@ -67,12 +66,6 @@ color 0C
 echo. Error! Invalid Choice!
 pause
 GOTO Atl
-:Error
-cls
-color 0C
-echo. Error! Cannot find git.exe! Application will now close!
-pause
-exit
 :Start
 cls
 SET /P Core=Do you only want MaNGOS (Y) or MaNGOS + SD2(N)
