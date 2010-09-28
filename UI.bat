@@ -50,7 +50,6 @@ echo  I - Requirements for this application
 echo  X - Exit
 echo.
 SET /P Option=Type a number/letter for your result : 
-IF %Option%. == . GOTO Invalid
 IF /I %Option%==* GOTO Invalid
 IF %Option%==1 GOTO Start
 IF %Option%==2 GOTO Gcompile
