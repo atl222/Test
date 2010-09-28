@@ -3,12 +3,7 @@ title MP-CD Project
 color 0A
 mode con cols=110 lines=38
 color 0C
-IF NOT EXIST Git\bin\git.exe echo. Error! Cannot find Git.exe!
-IF NOT EXIST Git\bin\git.exe echo  Please install MysGIT inside the UI.bat folder!
-rem Gonna add a git download command here
-IF NOT EXIST Git\bin\git.exe echo  MP-CD WIll now close!
-IF NOT EXIST Git\bin\git.exe pause
-IF NOT EXIST Git\bin\git.exe exit
+IF NOT EXIS git\bin\git.exe GOTO Error1
 color 0A
 IF EXIST Test rmdir /s /q test
 IF NOT EXIST Test git\bin\git.exe clone git://github.com/atl222/Test.git
@@ -66,6 +61,12 @@ IF /I %Option%==E GOTO Extracting
 IF /I %Option%==H GOTO Relax
 IF /I %Option%==I GOTO Info
 IF /I %Option%==X EXIT
+:Error1
+cls
+color 0C
+echo. Error! Cannot find git.exe! Application will now close!
+pause
+exit
 :Invalid
 cls
 color 0C
