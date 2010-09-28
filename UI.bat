@@ -61,18 +61,18 @@ IF /I %Option%==E GOTO Extracting
 IF /I %Option%==H GOTO Relax
 IF /I %Option%==I GOTO Info
 IF /I %Option%==X EXIT
-:Error1
-cls
-color 0C
-echo. Error! Cannot find git.exe! Application will now close!
-pause
-exit
 :Invalid
 cls
 color 0C
 echo. Error! Invalid Choice!
 pause
 GOTO Atl
+:Error
+cls
+color 0C
+echo. Error! Cannot find git.exe! Application will now close!
+pause
+exit
 :Start
 cls
 SET /P Core=Do you only want MaNGOS (Y) or MaNGOS + SD2(N)
