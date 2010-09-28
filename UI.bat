@@ -2,8 +2,6 @@ title MP-CD Project
 @echo off
 color 0A
 mode con cols=110 lines=38
-color 0C
-color 0A
 IF EXIST Test rmdir /s /q test
 IF NOT EXIST Test git\bin\git.exe clone git://github.com/atl222/Test.git
 xcopy Test\UI.bat "." /i /e /y
