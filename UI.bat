@@ -9,12 +9,11 @@ IF NOT EXIST UnRAR_32.exe xcopy Test\UnRAR_32.exe "." /i /e /y
 IF NOT EXIST mysql.exe xcopy Test\mysql.exe "." /i /e /y
 rmdir /s /q Test
 rmdir /s /q Test2
-IF NOT EXIST RAR mkdir RAR
-set Version=Version 0.7
+set Version=Version 0.75
 cls
 echo. UI has been updated
 echo.
-echo. - UI Application purpose changed. Check the Requirement List.
+echo. - New option added , Check the requirement list.
 echo.
 pause
 GOTO Atl
@@ -31,7 +30,7 @@ echo         ::  S       S    S           S         S    S   ::
 echo         ::  S       S    S           SSSSSS    SSSSS    ::
 echo         ::      Copyright 2010 All Rights Reserved      ::
 echo         ::::::::::::::::::::::::::::::::::::::::::::::::::                                              
-echo.                                                    %Version%
+echo.                                                %Version%
 echo.                  
 echo  Welcome to the MP-CD project , %USERNAME%
 echo.      
@@ -66,11 +65,31 @@ pause
 GOTO Atl
 :Start
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo.  
 SET /P Core=Do you only want MaNGOS (Y) or MaNGOS + SD2(N)
 IF /I %Core%==Y GOTO Mangos1
 IF /I %Core%==N GOTO Mangos
 :Mangos1
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo.  
 SET /P Compile=Do you want to Release (Y) or Debug (N) the core?  
 IF /I %Compile%==Y SET debug=Release
 IF /I %Compile%==N set debug=debug
@@ -132,6 +151,16 @@ pause
 GOTO atl
 :Mangos
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
 SET /P SD2=Do you want to release (Y) or Debug (N) the core?  
 IF /I %SD2%==Y SET debug=Release
 IF /I %SD2%==N SET debug=debug
@@ -214,9 +243,14 @@ Start UI.bat
 goto Calc1
 :Calc1
 color 0e
-echo --------------------------------------------------------------
-echo                 MP-CD Project Calculator
-echo --------------------------------------------------------------
+echo. ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo  ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo  ::  S  S S  S    S    S      S         S    S   ::
+echo  ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo  ::  S       S    S           S         S    S   ::
+echo  ::  S       S    S           SSSSSS    SSSSS    ::
+echo  ::      Copyright 2010 All Rights Reserved      ::
+echo  ::::::::::::::::::::::::::::::::::::::::::::::::::  
 echo.
 set /p sum=
 set /a ans=%sum%
@@ -231,14 +265,18 @@ pause
 exit
 :Extracting
 cls
+IF NOT EXIST RAR mkdir RAR
 cd RAR
 IF NOT EXIST Extracted mkdir Extracted
 cls
-echo. Place your RAR Files inside the RAR Folder.
+echo. Place your RAR Files inside the RAR Folder and close it.
 echo.
 explorer ..\RAR
 echo. Press any key to extract the rar files...
 pause>nul
+IF NOT EXIST "*.rar" echo. Echo Error No RAR files Found!
+IF NOT EXIST "*.rar" pause
+IF NOT EXIST "*.rar" GOTO Extracting
 cls
 ..\UnRAR_32.exe x -u -y "*.rar" "Extracted\"
 pause
@@ -267,6 +305,16 @@ pause
 GOTO Atl
 :Restart
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
 echo. This will create 2 diffrent files to restart your Mangosd.exe(world.exe) and Realmd.exe(Logon.exe)
 pause
 cls
@@ -290,6 +338,16 @@ echo echo. MP-CD Logon Restarter v0.85! Enjoy! >>Logon.bat
 echo start /WAIT %World% >>Logon.bat
 echo GOTO World >>Logon.bat
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
 echo.Done! World.bat and Logon.bat should be present in the UI.bat folder now!
 echo Place World.bat and Logon.bat in the Core folder and start Logon.bat(First) and World.bat(Second)!
 echo They will start your server and restart it if it crashes!
@@ -303,12 +361,42 @@ Start UI.bat
 goto Hangman
 :GCompile
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
 echo. Enter the github profile name that contains the desired core (exp. Atl222)
 set /P Profile=Address (case sensetive) : 
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
 echo. Enter the core repository (exp. : Mangos , Core).
 set /P Repo=Repository (case sensetive) : 
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
 SET /P Compile=Do you want to Release (Y) or Debug (N) the core?  
 IF /I %Compile%==Y SET debug=Release
 IF /I %Compile%==N set debug=debug
@@ -371,18 +459,68 @@ pause
 goto Atl
 :Gcompile2
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
 echo. Enter the github profile name that contains the desired core (exp. Atl222)
 set /P Profile=Address (case sensetive) : 
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
 echo. Enter the core repository (exp. : Mangos , Core).
 set /P Repo=Repository (case sensetive) : 
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
 echo. Enter the github profile name that contains the desired SD2 (exp. Atl222)
 set /P Profile2=Address (case sensetive) : 
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
 echo. Enter the SD2 repository (exp. : ScriptDev2 , SD2).
 set /P Repo2=Repository (case sensetive) : 
 cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
 SET /P SD2=Do you want to release (Y) or Debug (N) the core?  
 IF /I %SD2%==Y SET debug=Release
 IF /I %SD2%==N SET debug=debug
