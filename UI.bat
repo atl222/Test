@@ -251,6 +251,8 @@ echo  ::  S       S    S           S         S    S   ::
 echo  ::  S       S    S           SSSSSS    SSSSS    ::
 echo  ::      Copyright 2010 All Rights Reserved      ::
 echo  ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo Previous Answer: %ans%
+echo.
 echo.
 set /p sum=
 set /a ans=%sum%
@@ -259,10 +261,7 @@ echo = %ans%
 echo --------------------------------------------------------------
 pause
 cls
-echo Previous Answer: %ans%
 goto Calc1
-pause
-exit
 :Extracting
 cls
 IF NOT EXIST RAR mkdir RAR
