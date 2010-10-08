@@ -106,7 +106,8 @@ cd mangos
 %WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe win\mangosdVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
 pause
 cls
-echo. Your compiled Core is now located inside mangos\bin folder.
+explorer ../mangos/bin/
+echo. Congratulation! You just compiled a core!
 echo.
 echo  Note : If you had any errors during the download/compile, the core didn't compile.
 echo.
@@ -120,22 +121,22 @@ IF /I %DBUpdate%==N GOTO Atl
 :Mangos1DB
 rem Gonna clean up the code later
 cls
-set /p svr=What is your MySQL host name?	[Default: localhost]		: 
+set /p svr=What is your MySQL host name           [Localhost]       		: 
 if %svr%. == . set svr=localhost
-set /p user=What is your MySQL user name?	[Default: root]			: 
+set /p user=What is your MySQL user name?	[root]			: 
 if %user%. == . set user=root
-set /p pass=What is your MySQL password?	[Default: mangos]		: 
+set /p pass=What is your MySQL password?	[mangos/ascent]		: 
 if %pass%. == . set pass=mangos
-set /p port=What is your MySQL port?	[Default: 3306]			: 
+set /p port=What is your MySQL port?	[3306]			: 
 if %port%. == . set port=3306
 cls
-set /p scriptdev2db=What is your ScriptDev2 DB name?	[Default: scriptdev2]        : 
+set /p scriptdev2db=What is your ScriptDev2 DB name?	[scriptdev2]        : 
 if %scriptdev2db%. == . set scriptdev2db=scriptdev2
-set /p mangosdb=What is your MaNGOS DB name?		[Default: mangos]        : 
+set /p mangosdb=What is your MaNGOS DB name?		[mangos]        : 
 if %mangosdb%. == . set mangosdb=mangos
-set /p charactersdb=What is your characters DB name?	[Default: characters]        : 
+set /p charactersdb=What is your characters DB name?	[characters]        : 
 if %charactersdb%. == . set charactersdb=characters
-set /p realmddb=What is your realmd DB name?		[Default: realmd]        : 
+set /p realmddb=What is your realmd DB name?		[realmd]        : 
 if %realmddb%. == . set realmddb=realmd
 cls
 for %%i in (mangos\sql\updates\0.16\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
@@ -194,7 +195,8 @@ cd src\bindings\ScriptDev2
 %WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe scriptVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
 pause
 cls
-echo. Your compiled Core is now located inside mangos\bin folder.
+explorer ../../bin
+echo. Congratulation! You just compiled a core!
 echo.
 echo  Note : If you had any errors during the download/compile, the core didn't compile.
 echo.
@@ -207,22 +209,22 @@ IF /I %Mangos2DB%==Y GOTO Mangos2DBU
 IF /I %Mangos2DB%==N GOTO Atl
 :Mangos2DBU
 cls
-set /p svr=What is your MySQL host name?	[Default: localhost]		: 
+set /p svr=What is your MySQL host name?	[localhost]		: 
 if %svr%. == . set svr=localhost
-set /p user=What is your MySQL user name?	[Default: root]			: 
+set /p user=What is your MySQL user name?	[root]			: 
 if %user%. == . set user=root
-set /p pass=What is your MySQL password?	[Default: mangos]		: 
+set /p pass=What is your MySQL password?	[mangos/ascent]		: 
 if %pass%. == . set pass=mangos
-set /p port=What is your MySQL port?	[Default: 3306]			: 
+set /p port=What is your MySQL port?	[3306]			: 
 if %port%. == . set port=3306
 cls
-set /p scriptdev2db=What is your ScriptDev2 DB name?	[Default: scriptdev2]        : 
+set /p scriptdev2db=What is your ScriptDev2 DB name?	[scriptdev2]        : 
 if %scriptdev2db%. == . set scriptdev2db=scriptdev2
-set /p mangosdb=What is your MaNGOS DB name?		[Default: mangos]        : 
+set /p mangosdb=What is your MaNGOS DB name?		[mangos]        : 
 if %mangosdb%. == . set mangosdb=mangos
-set /p charactersdb=What is your characters DB name?	[Default: characters]        : 
+set /p charactersdb=What is your characters DB name?	[characters]        : 
 if %charactersdb%. == . set charactersdb=characters
-set /p realmddb=What is your realmd DB name?		[Default: realmd]        : 
+set /p realmddb=What is your realmd DB name?		[realmd]        : 
 if %realmddb%. == . set realmddb=realmd
 cls
 for %%i in (mangos\sql\updates\0.16\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
@@ -416,29 +418,28 @@ echo.
 echo  Note : If you had any errors during the download/compile, the core didn't compile.
 echo.
 pause
-rem Gonna add updates here
 cls
 set /P DB=Do you want to import the database updates? (Y/N)
 IF /I %DB%=N Goto Atl
 IF /I %DB%=Y GOTO Database
 :Database
 cls
-set /p svr=What is your MySQL host name?	[Default: localhost]		: 
+set /p svr=What is your MySQL host name?	[localhost]		: 
 if %svr%. == . set svr=localhost
-set /p user=What is your MySQL user name?	[Default: root]			: 
+set /p user=What is your MySQL user name?	[root]			: 
 if %user%. == . set user=root
-set /p pass=What is your MySQL password?	[Default: mangos]		: 
+set /p pass=What is your MySQL password?	[mangos/ascent]		: 
 if %pass%. == . set pass=mangos
-set /p port=What is your MySQL port?	[Default: 3306]			: 
+set /p port=What is your MySQL port?	[3306]			: 
 if %port%. == . set port=3306
 cls
-set /p scriptdev2db=What is your ScriptDev2 DB name?	[Default: scriptdev2]        : 
+set /p scriptdev2db=What is your ScriptDev2 DB name?	[scriptdev2]        : 
 if %scriptdev2db%. == . set scriptdev2db=scriptdev2
-set /p mangosdb=What is your MaNGOS DB name?		[Default: mangos]        : 
+set /p mangosdb=What is your MaNGOS DB name?		[mangos]        : 
 if %mangosdb%. == . set mangosdb=mangos
-set /p charactersdb=What is your characters DB name?	[Default: characters]        : 
+set /p charactersdb=What is your characters DB name?	[characters]        : 
 if %charactersdb%. == . set charactersdb=characters
-set /p realmddb=What is your realmd DB name?		[Default: realmd]        : 
+set /p realmddb=What is your realmd DB name?		[realmd]        : 
 if %realmddb%. == . set realmddb=realmd
 cls
 for %%i in (%Repo%\sql\updates\0.16\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
@@ -563,22 +564,22 @@ IF /I %DB%=N Goto Atl
 IF /I %DB%=Y GOTO Database2
 :Database2
 cls
-set /p svr=What is your MySQL host name?	[Default: localhost]		: 
+set /p svr=What is your MySQL host name?	[localhost]		: 
 if %svr%. == . set svr=localhost
-set /p user=What is your MySQL user name?	[Default: root]			: 
+set /p user=What is your MySQL user name?	[root]			: 
 if %user%. == . set user=root
-set /p pass=What is your MySQL password?	[Default: mangos]		: 
+set /p pass=What is your MySQL password?	[mangos/ascent]		: 
 if %pass%. == . set pass=mangos
-set /p port=What is your MySQL port?	[Default: 3306]			: 
+set /p port=What is your MySQL port?	[3306]			: 
 if %port%. == . set port=3306
 cls
-set /p scriptdev2db=What is your ScriptDev2 DB name?	[Default: scriptdev2]        : 
+set /p scriptdev2db=What is your ScriptDev2 DB name?	[scriptdev2]        : 
 if %scriptdev2db%. == . set scriptdev2db=scriptdev2
-set /p mangosdb=What is your MaNGOS DB name?		[Default: mangos]        : 
+set /p mangosdb=What is your MaNGOS DB name?		[mangos]        : 
 if %mangosdb%. == . set mangosdb=mangos
-set /p charactersdb=What is your characters DB name?	[Default: characters]        : 
+set /p charactersdb=What is your characters DB name?	[characters]        : 
 if %charactersdb%. == . set charactersdb=characters
-set /p realmddb=What is your realmd DB name?		[Default: realmd]        : 
+set /p realmddb=What is your realmd DB name?		[Drealmd]        : 
 if %realmddb%. == . set realmddb=realmd
 cls
 for %%i in (%Repo%\sql\updates\0.16\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
