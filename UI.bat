@@ -13,7 +13,8 @@ set Version=Version 0.75
 cls
 echo. UI has been updated
 echo.
-echo. - New option added , Check the requirement list.
+echo. - New options added , Check the requirement list.
+echo. - New compile system.
 echo.
 pause
 GOTO Atl
