@@ -37,7 +37,7 @@ echo  Welcome to the MP-CD project , %USERNAME%
 echo.      
 echo  1 - Clean Mangos Core (Downloads and compiles a clean MaNGOS(+SD2) Core)
 echo  2 - Compile a core from a specific GITHUB address
-echo  3 - Server Restarter v0.85
+echo  3 - Server Restarter v0.9a
 echo  4 - LichBorn WoW
 echo  5 - Compile a Core+SD2 from a specific GITHUB address (Experimental)
 echo  C - Calculator (Starts a Calculator in this window, UI opens in a second one)
@@ -323,21 +323,29 @@ cls
 IF EXIST World.bat del World.bat
 set /P World=What is your World.exe(Mangosd.exe) name? : 
 echo @echo off >>World.bat
-echo title MP-CD World Restarter v0.85 >>World.bat
+echo title MP-CD World Restarter v0.9a >>World.bat
 echo color 0A >>World.bat
+echo IF NOT EXIST %World% echo. %World% not found! >>World.bat
+echo IF NOT EXIST %World% pause >>World.bat
+echo IF NOT EXIST %World% exit >>World.bat
+echo GOTO World >>World.bat
 echo :World >>World.bat
-echo echo. MP-CD World Restarter v0.85! Enjoy! >>World.bat
+echo echo. MP-CD World Restarter v0.9a! Enjoy! >>World.bat
 echo start /WAIT %World% >>World.bat
 echo GOTO World >>World.bat
 cls
 IF EXIST Logon.bat del Logon.bat
 set /P Logon=What is your Logon.exe(Realmd.exe) name? : 
 echo @echo off >>Logon.bat
-echo title MP-CD Logon Restarter v0.85 >>Logon.bat
+echo title MP-CD Logon Restarter v0.9a >>Logon.bat
 echo color 0A >>Logon.bat
-echo :World >>Logon.bat
-echo echo. MP-CD Logon Restarter v0.85! Enjoy! >>Logon.bat
-echo start /WAIT %World% >>Logon.bat
+echo IF NOT EXIST %Logon% echo. %Logon% Not found! >>Logon.bat
+echo IF NOT EXIST %Logon% pause >>Logon.bat
+echo IF NOT EXIST %Logon% exit >>Logon.bat
+echo GOTO Logon >>Logon.bat
+echo :Logon >>Logon.bat
+echo echo. MP-CD Logon Restarter v0.9a! Enjoy! >>Logon.bat
+echo start /WAIT %Logon% >>Logon.bat
 echo GOTO World >>Logon.bat
 cls
 echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
