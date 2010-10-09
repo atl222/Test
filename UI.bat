@@ -580,7 +580,7 @@ set /p mangosdb=What is your MaNGOS DB name?		[mangos]        :
 if %mangosdb%. == . set mangosdb=mangos
 set /p charactersdb=What is your characters DB name?	[characters]        : 
 if %charactersdb%. == . set charactersdb=characters
-set /p realmddb=What is your realmd DB name?		[Drealmd]        : 
+set /p realmddb=What is your realmd DB name?		[realmd]        : 
 if %realmddb%. == . set realmddb=realmd
 cls
 for %%i in (%Repo%\sql\updates\0.16\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
