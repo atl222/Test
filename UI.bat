@@ -242,7 +242,7 @@ for %%i in ("mangos\src\bindings\ScriptDev2\sql\Updates\*_mangos.sql") do echo %
 pause
 GOTO Atl
 :Atlantis
-IF %CUSTOM%=N GOTO Atl
+IF %CUSTOM%==N GOTO Atl
 cls
 echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
 echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
