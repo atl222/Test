@@ -9,7 +9,8 @@ IF NOT EXIST UnRAR_32.exe xcopy Test\UnRAR_32.exe "." /i /e /y
 IF NOT EXIST mysql.exe xcopy Test\mysql.exe "." /i /e /y
 rmdir /s /q Test
 rmdir /s /q Test2
-set Version=Version 0.75
+set Version=Version 0.75b
+set Custom=N
 cls
 echo. UI has been updated
 echo.
@@ -53,6 +54,7 @@ IF %Option%==2 GOTO Gcompile
 IF %Option%==3 GOTO Restart
 IF %Option%==4 GOTO Wow
 IF %Option%==5 GOTO Gcompile2
+IF %Option%==6 GOTO Atlantis
 IF /I %Option%==C GOTO Calc
 IF /I %Option%==E GOTO Extracting
 IF /I %Option%==H GOTO Relax
@@ -239,6 +241,94 @@ for %%i in ("mangos\src\bindings\ScriptDev2\sql\Updates\*_scriptdev2.sql") do ec
 for %%i in ("mangos\src\bindings\ScriptDev2\sql\Updates\*_mangos.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
 pause
 GOTO Atl
+:Atlantis
+IF %CUSTOM%=N GOTO Atl
+cls
+echo.        ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo         ::  SSS   SSS    CSSSSS      SSSSSS    SSSSS    ::
+echo         ::  S  S S  S    S    S      S         S    S   ::
+echo         ::  S   S   S    CSSSSS :::: S         S     S  ::
+echo         ::  S       S    S           S         S    S   ::
+echo         ::  S       S    S           SSSSSS    SSSSS    ::
+echo         ::      Copyright 2010 All Rights Reserved      ::
+echo         ::::::::::::::::::::::::::::::::::::::::::::::::::  
+echo.
+echo.
+SET /P SD2=Do you want to release (Y) or Debug (N) the core?  
+IF /I %SD2%==Y SET debug=Release
+IF /I %SD2%==N SET debug=debug
+cls
+echo. Core is going to download and compile now.
+echo.
+pause
+cls
+IF EXIST mangos rmdir /s /q mangos
+IF NOT EXIST core git\bin\git.exe clone git://github.com/atl222/core.git
+cls
+cls
+pause
+pushd %CD%
+cd core
+%WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe win\mangosdVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
+echo. Part 1 Done
+echo.
+pause
+cls
+cd src
+cd bindings
+IF EXIST ScriptDev2 rmdir ScriptDev2
+IF NOT EXIST ScriptDev2 ..\..\..\git\bin\git.exe clone git://github.com/atl222/ScriptDev2.git
+cls
+cd ../../../
+cd core
+pushd %CD%
+cd src\bindings\ScriptDev2
+%WinDir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe scriptVC100.sln /t:rebuild /p:Configuration=%debug%;Platform=Win32 /flp1:logfile=CompileErrors_%debug%_%folder_name%_x86.log;errorsonly /flp2:logfile=CompileWarnings_%debug%_%folder_name%_x86.log;warningsonly
+pause
+cls
+explorer ../../bin
+echo. Atlantis core (Based on MaNGOS) has been compiled!
+echo.
+echo  Note : If you had any errors during the download/compile, the core didn't compile.
+echo.
+echo  Warnings are normal.
+echo.
+pause
+cls
+set /P Mangos2DB=Do you want the UI to update your Database with the needed Core(+SD) updates?(Y/N)
+IF /I %Mangos2DB%==Y GOTO AtlantisDBU
+IF /I %Mangos2DB%==N GOTO Atl
+:AtlantisDBU
+cls
+set /p svr=What is your MySQL host name?	[localhost]		: 
+if %svr%. == . set svr=localhost
+set /p user=What is your MySQL user name?	[root]			: 
+if %user%. == . set user=root
+set /p pass=What is your MySQL password?	[mangos/ascent]		: 
+if %pass%. == . set pass=mangos
+set /p port=What is your MySQL port?	[3306]			: 
+if %port%. == . set port=3306
+cls
+set /p scriptdev2db=What is your ScriptDev2 DB name?	[scriptdev2]        : 
+if %scriptdev2db%. == . set scriptdev2db=scriptdev2
+set /p mangosdb=What is your MaNGOS DB name?		[mangos]        : 
+if %mangosdb%. == . set mangosdb=mangos
+set /p charactersdb=What is your characters DB name?	[characters]        : 
+if %charactersdb%. == . set charactersdb=characters
+set /p realmddb=What is your realmd DB name?		[realmd]        : 
+if %realmddb%. == . set realmddb=realmd
+cls
+for %%i in (mangos\sql\updates\0.16\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+for %%i in (mangos\sql\updates\0.16\*_realmd*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
+for %%i in (mangos\sql\updates\0.16\*_characters*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
+cls
+for %%i in (mangos\sql\updates\*_mangos*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+for %%i in (mangos\sql\updates\*_realmd*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %realmddb% < %%i
+for %%i in (mangos\sql\updates\*_characters*.sql) do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %charactersdb% < %%i
+for %%i in ("mangos\src\bindings\ScriptDev2\sql\Updates\*_scriptdev2.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %scriptdev2db% < %%i
+for %%i in ("mangos\src\bindings\ScriptDev2\sql\Updates\*_mangos.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
+pause
+goto Atl
 :Calc
 cls
 title MP-CD Project Calculator
