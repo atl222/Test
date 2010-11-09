@@ -101,7 +101,9 @@ echo. Core is going to download and compile now.
 echo.
 pause
 cls
-IF EXIST mangos git\bin\git.exe pull git://github.com/mangos/mangos.git master
+IF EXIST mangos cd mangos
+IF EXIST ..\mangos ..\git\bin\git.exe pull git://github.com/mangos/mangos.git master
+IF EXIST ..\mangos cd ..\
 IF NOT EXIST Mangos git\bin\git.exe clone git://github.com/mangos/mangos
 cls
 pushd %CD%
@@ -173,7 +175,9 @@ echo. Core is going to download and compile now.
 echo.
 pause
 cls
-IF EXIST mangos git\bin\git.exe pull git://github.com/mangos/mangos.git master
+IF EXIST mangos cd mangos
+IF EXIST ..\mangos ..\git\bin\git.exe pull git://github.com/mangos/mangos.git master
+IF EXIST ..\mangos cd ..\
 IF NOT EXIST Mangos git\bin\git.exe clone git://github.com/mangos/mangos.git
 cls
 pause
@@ -181,7 +185,9 @@ pushd %CD%
 cd mangos
 cd src
 cd bindings
-IF EXIST ScriptDev2 ..\..\..\git\bin\git.exe pull git://github.com/rsa/scriptdev2.git master
+IF EXIST ScriptDev2 cd ScriptDev2
+IF EXIST ..\ScriptDev2 ..\..\..\..\git\bin\git.exe pull git://github.com/rsa/scriptdev2.git master
+IF EXIST ..\ScriptDev2 cd ..\
 IF NOT EXIST ScriptDev2 ..\..\..\git\bin\git.exe clone git://github.com/rsa/scriptdev2.git
 rename "scriptdev2" "ScriptDev2"
 cls
@@ -415,7 +421,9 @@ echo. Core is going to download/compile now.
 echo.
 pause
 cls
-IF EXIST %Repo% git\bin\git.exe pull git://github.com/%Profile%/%Repo% master
+IF EXIST %Repo% cd %Repo%
+IF EXIST ..\%Repo% ..\git\bin\git.exe pull git://github.com/%Profile%/%Repo%
+IF EXIST ..\%Repo% cd ..\
 IF NOT EXIST %Repo% git\bin\git.exe clone git://github.com/%Profile%/%Repo%
 cls
 pushd %CD%
@@ -538,8 +546,10 @@ echo. Core is going to download and compile now.
 echo.
 pause
 cls
-IF EXIST %Repo% git\bin\git.exe pull git://github.com/%Profile%/%Repo% master
-IF NOT EXIST Mangos git\bin\git.exe clone git://github.com/%Profile%/%Repo%
+IF EXIST %Repo% cd %Repo%
+IF EXIST ..\%Repo% ..\git\bin\git.exe pull git://github.com/%Profile%/%Repo%
+IF EXIST ..\%Repo% cd ..\
+IF NOT EXIST %Repo% git\bin\git.exe clone git://github.com/%Profile%/%Repo%
 cls
 pause
 pushd %CD%
@@ -547,7 +557,9 @@ cd %Repo%
 cls
 cd src
 cd bindings
-IF EXIST %Repo2% ..\..\..\git\bin\git.exe pull git://github.com/%Profile2%/%Repo2% master
+IF EXIST %Repo2% cd %Repo2%
+IF EXIST ..\%Repo2% ..\..\..\..\git\bin\git.exe pull git://github.com/%Profile2%/%Repo2%
+IF EXIST ..\%Repo2% cd ..\
 IF NOT EXIST %Repo2% ..\..\..\git\bin\git.exe clone git://github.com/%Profile2%/%Repo2%
 rename "%Repo2%" "ScriptDev2"
 cls
