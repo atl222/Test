@@ -41,6 +41,7 @@ echo  2 - Compile a core from a specific GITHUB address
 echo  3 - Server Restarter v0.9a
 echo  4 - LichBorn WoW
 echo  5 - Compile a Core+SD2 from a specific GITHUB address (Experimental)
+echo  6 - Download the c++ version of UI.bat (Coming soon)
 echo  C - Calculator (Starts a Calculator in this window, UI opens in a second one)
 echo  E - RAR Extractor (Extracts Any RAR Files with 1 Click)
 echo  H - Hangman (Relax with a game of Hangman)
@@ -54,7 +55,7 @@ IF %Option%==2 GOTO Gcompile
 IF %Option%==3 GOTO Restart
 IF %Option%==4 GOTO Wow
 IF %Option%==5 GOTO Gcompile2
-IF %Option%==6 GOTO Atlantis
+IF %Option%==6 GOTO Cpp // Not sure why option 6 already existed
 IF /I %Option%==C GOTO Calc
 IF /I %Option%==E GOTO Extracting
 IF /I %Option%==H GOTO Relax
@@ -615,6 +616,11 @@ for %%i in ("%Repo%\src\bindings\ScriptDev2\sql\Updates\*_scriptdev2.sql") do ec
 for %%i in ("%Repo%\src\bindings\ScriptDev2\sql\Updates\*_mangos.sql") do echo %%i & mysql.exe -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --line_numbers %mangosdb% < %%i
 pause
 GOTO Atl
+:Cpp
+cls
+echo. Sorry , this option isn't fully working yet!
+pause
+goto Atl
 :Hangman
 title MP-CD Project - Hangman
 setlocal enabledelayedexpansion
