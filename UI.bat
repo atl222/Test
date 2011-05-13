@@ -1,3 +1,4 @@
+::Gonna clean up the database injection code , would use 1 code for all options instead of 1 code for each option
 title MP-CD Project
 @echo off
 color 0A
