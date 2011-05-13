@@ -3,6 +3,8 @@ title MP-CD Project
 @echo off
 color 0A
 mode con cols=110 lines=38
+IF NOT EXIST git goto MysGit
+IF NOT EXIST %WinDir%\Microsoft.NET\Framework\ goto NET
 IF EXIST Test rmdir /s /q test
 IF NOT EXIST Test git\bin\git.exe clone git://github.com/atl222/Test.git
 xcopy Test\UI.bat "." /i /e /y
@@ -20,6 +22,18 @@ echo. - New compile system.
 echo.
 pause
 GOTO Atl
+:MysGit
+cls
+echo. UI.bat can't detect Git folder! Please reinstall git into the 
+echo. same folder as this application and re-run UI.bat.
+pause
+exit
+:NET
+cls
+echo. UI.bat can't detect Microsoft Net Framework! Please install it
+echo. and re-run Ui.bat!
+pause
+exit
 :Atl
 color 0A
 cls
